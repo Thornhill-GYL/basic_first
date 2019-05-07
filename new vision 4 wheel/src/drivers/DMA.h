@@ -1,0 +1,129 @@
+#ifndef __DMA_H__
+#define __DMA_H__
+typedef enum DMA_BYTEn      //DMA每次传输字节数
+{
+  DMA_BYTE1 = 0,
+  DMA_BYTE2 = 1,
+  DMA_BYTE4 = 2,
+  DMA_BYTE16 = 4
+} DMA_BYTEn;
+
+typedef enum
+{
+  /*DMAMUX Channels 0-15*/
+  DMA_CHANNEL_DISABLED  = 0,
+  DMA_UART0_RX          = 2,
+  DMA_UART0_TX,
+  DMA_UART1_RX,
+  DMA_UART1_TX,
+  DMA_PWM0_WR0,
+  DMA_PWM0_WR1,
+  DMA_PWM0_WR2,
+  DMA_PWM0_WR3,
+  DMA_PWM0_CP0,
+  DMA_PWM0_CP1,
+  DMA_PWM0_CP2,
+  DMA_PWM0_CP3,
+  DMA_CAN0,
+  DMA_CAN1,
+  DMA_SPI0_RX,
+  DMA_SPI0_TX,
+  DMA_XBA_OUT0,
+  DMA_XBA_OUT1,
+  DMA_XBA_OUT2,
+  DMA_XBA_OUT3,
+  DMA_I2C0,
+  DMA_FTM0_CH0          = 24,
+  DMA_FTM0_CH1,
+  DMA_FTM0_CH2,
+  DMA_FTM0_CH3,
+  DMA_FTM0_CH4,
+  DMA_FTM0_CH5,
+  DMA_FTM0_CH6,
+  DMA_FTM0_CH7,
+  DMA_FTM1_CH0,
+  DMA_FTM1_CH1,
+  DMA_CMP3,
+  DMA_FTM3_CH0          = 36,
+  DMA_FTM3_CH1,
+  DMA_FTM3_CH2,
+  DMA_FTM3_CH3,
+  DMA_HSADC0A_SC,
+  DMA_HSADC0B_SC,
+  DMA_CMP0,
+  DMA_CMP1,
+  DMA_CMP2,
+  DMA_DAC0,
+  DMA_PDB1              = 47,
+  DMA_PDB0,
+  DMA_PORTA,
+  DMA_PORTB,
+  DMA_PORTC,
+  DMA_PORTD,
+  DMA_PORTE,
+  DMA_FTM3_CH4,
+  DMA_FTM3_CH5,
+  DMA_FTM3_CH6,
+  DMA_FTM3_CH7,
+  DMA_ALWAYS_ENABLED1   = 60,
+  DMA_ALWAYS_ENABLED2,
+  DMA_ALWAYS_ENABLED3,
+  DMA_ALWAYS_ENABLED4,
+  
+  /*DMAMUX Channels 16-31*/
+  DMA_UART2_RX          = 2,
+  DMA_UART2_TX,
+  DMA_UART3_RX,
+  DMA_UART3_TX,
+  DMA_PWM1_WR0,
+  DMA_PWM1_WR1,
+  DMA_PWM1_WR2,
+  DMA_PWM1_WR3,
+  DMA_PWM1_CP0,
+  DMA_PWM1_CP1,
+  DMA_PWM1_CP2,
+  DMA_PWM1_CP3,
+  DMA_CAN2,
+  DMA_SPI1_RX           = 16,
+  DMA_SPI1_TX,
+  DMA_I2C1              = 22,
+  DMA_FTM2_CH0          = 32,
+  DMA_FTM2_CH1,
+  DMA_SPI2_RX,
+  DMA_SPI2_TX,
+  DMA_IEEE1588_TIMER0,
+  DMA_IEEE1588_TIMER1,
+  DMA_IEEE1588_TIMER2,
+  DMA_IEEE1588_TIMER3,
+  DMA_HSADC1A_SC,
+  DMA_HSADC1B_SC,
+  DMA_ADC0              = 45,
+  DMA_UART4_Rx          = 54,
+  DMA_UART4_Tx,
+  DMA_UART5_Rx,
+  DMA_UART5_Tx,
+}DMA_REQUEST_SOURCE;
+
+typedef enum
+{
+  DMA_PERIPHERAL_TO_MEMORY = 0,
+  DMA_MEMORY_TO_MEMORY,
+  DMA_MEMORY_TO_PERIPHERAL
+}DMA_TYPE;
+
+typedef enum
+{
+  DMA_REVERT,   //恢复原地址
+  DMA_KEEPON
+}DMA_DLASTCFG;
+
+void DMA_PORTx2BUFF_Init(u8 CHn, void *SADDR, void *DADDR,DMA_BYTEn byten,u32 count,DMA_REQUEST_SOURCE Source ,DMA_TYPE type,DMA_DLASTCFG keepon);
+
+#define  DMA_IRQ_EN(DMACHn)    NVIC_EnableIRQ((DMACHn) + 0)                     //允许DMA通道传输
+#define  DMA_IRQ_DIS(DMA_CHn)   NVIC_DisableIRQ((DMA_CHn) + 0)                    //禁止DMA通道传输
+#define  DMA_IRQ_CLEAN(DMA_CHn) DMA_INT|=(DMA_INT_INT0_MASK<<DMA_CHn)             //清除通道传输中断标志位
+
+#define  DMA_EN(DMA_CHn)        DMA_ERQ |= (DMA_ERQ_ERQ0_MASK<<(DMA_CHn))         //使能通道硬件DMA请求
+#define  DMA_DIS(DMA_CHn)       DMA_ERQ &=~(DMA_ERQ_ERQ0_MASK<<(DMA_CHn))         //禁止通道硬件DMA请求
+
+#endif
