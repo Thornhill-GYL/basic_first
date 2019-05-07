@@ -68,11 +68,11 @@ void PIT0_IRQHandler(void)
   }
   if(run_flag==1)
   {
-     if(((SWITCH_STATUS>>0)&1)==1)
+      if(((SWITCH_STATUS>>1)&1)==1)
      {
        single_control();
      }
-     else if(((SWITCH_STATUS>>0)&1)==0)
+     else if(((SWITCH_STATUS>>1)&1)==0)
      {
        double_control();
      }
