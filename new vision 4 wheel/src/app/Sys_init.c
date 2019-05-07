@@ -2,7 +2,7 @@
 #include "include.h"
 #include <stdio.h>
 u8 SWITCH_STATUS = 0;
-
+int run_flag=0;
 InitParameter Initialization =                          //初始化数据
 {
   .MotorP = 900,
@@ -13,7 +13,7 @@ InitParameter Initialization =                          //初始化数据
   .ServoP = 5,
   .ServoD = 10,
   .ServoDD = 25,
-  .ElecP = 1.5,
+  .ElecP =1.5,
   .ElecD =2,
   .Speedtarget = 150,
   .Cnst = 60,
@@ -38,6 +38,7 @@ void System_init(void)
   Ov7725_Init();
   pit_init_ms(PIT0,PIT_PERIOD);
   ADC0_Init();
+  break_data_init();
   NVIC_SetPriority(DMA4_DMA20_IRQn,0);
   NVIC_SetPriority(VSYNC_IRQ,1);
   NVIC_SetPriority(PIT0_IRQn,2);

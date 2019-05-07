@@ -1,81 +1,81 @@
-"D:\5_6-4-wheel\new vision 4 wheel\src\utilities\fsl_log.c"
+"F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\utilities\fsl_log.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\utilities
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\utilities
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\app
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\app
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\CMSIS
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\CMSIS
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\Control
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\Control
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\drivers
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\drivers
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\fsl
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\fsl
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\startup
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\startup
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\utilities
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\utilities
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\ugfx
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\ugfx
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\ugfx\drivers\gdisp\ILI9341
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\ugfx\drivers\gdisp\ILI9341
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\ugfx\src\gdisp
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\ugfx\src\gdisp
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\ugfx\src
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\ugfx\src
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\Control\menu
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\Control\menu
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\fatfs
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\fatfs
 -I
-D:\5_6-4-wheel\new vision 4 wheel\project\..\src\Control\menu
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\Control\menu
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CMSIS\Core\Include
+D:\Program Files (x86)\IAR8.32\arm\CMSIS\Core\Include
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CMSIS\DSP\Include
+D:\Program Files (x86)\IAR8.32\arm\CMSIS\DSP\Include
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\inc
+D:\Program Files (x86)\IAR8.32\arm\inc
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\inc\c
+D:\Program Files (x86)\IAR8.32\arm\inc\c
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\app
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\app
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\CMSIS
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\CMSIS
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\Control
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\Control
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\drivers
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\drivers
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\fsl
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\fsl
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\startup
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\startup
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\utilities
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\utilities
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\ugfx
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\ugfx
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\ugfx\drivers\gdisp\ILI9341
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\ugfx\drivers\gdisp\ILI9341
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\ugfx\src\gdisp
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\ugfx\src\gdisp
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\ugfx\src
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\ugfx\src
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\Control\menu
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\Control\menu
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\fatfs
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\fatfs
 -I
-D:\5_6-4-wheel\new vision 4 wheel\src\Control\menu
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\Control\menu
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CMSIS\Core\Include
+D:\Program Files (x86)\IAR8.32\arm\CMSIS\Core\Include
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CMSIS\DSP\Include
+D:\Program Files (x86)\IAR8.32\arm\CMSIS\DSP\Include
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -372,8 +372,8 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CMSIS\DSP\Include
 -D__EDG_FLOAT128_ENABLING_POSSIBLE=0
 -DCPU_MKV58F1M0VLQ24=1
 -DARM_MATH_CM7=1
--D_DLIB_CONFIG_FILE_HEADER_NAME="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.2\\arm\\inc\\c\\DLib_Config_Full.h"
--D_DLIB_CONFIG_FILE_STRING="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.2\\arm\\inc\\c\\DLib_Config_Full.h"
+-D_DLIB_CONFIG_FILE_HEADER_NAME="D:\\Program Files (x86)\\IAR8.32\\arm\\inc\\c\\DLib_Config_Full.h"
+-D_DLIB_CONFIG_FILE_STRING="D:\\Program Files (x86)\\IAR8.32\\arm\\inc\\c\\DLib_Config_Full.h"
 -D__VERSION__="IAR ANSI C/C++ Compiler V8.32.2.178/W32 for ARM"
 -D__ICCARM_OLD_DEFINED_VAARGS__=1
 -D__VA_STACK_ALIGN__=8

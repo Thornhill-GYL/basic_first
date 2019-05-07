@@ -4,7 +4,7 @@
 Speed_Status Speed;
 u16 AD_data[6];
 Dir_STR Dir = {
-                .Dir_mode = Camera_Mode,
+                .Dir_mode = Camera_Mode,// .Dir_mode = Camera_Mode
                 .Width  = 0.155f,
                 .Length = 0.2f,
                 ._2Real_V = 0.15703f,
@@ -14,6 +14,7 @@ Dir_STR Dir = {
 
 void Speed_control(void)
 {
+  Speed.PID.target = Speed.using_speed;
   if(Block.State == NoBlock)
    Diff_Speed();
   else if(Block.State == Block_S0)
@@ -117,7 +118,7 @@ void Dir_control(void)
    }
   else if(Dir.Dir_mode == Elec_Mode)
   {
-    Dir.PID_E.feedback = Dir.Dir_C_error;
+    Dir.PID_E.feedback = Dir.Dir_E_error;
     Diff_PID_Process(&Dir.PID_E);
 //    Elec_PID.PID.result += Initialization.ServoDD * mpu9250_Gyro_x * mpu9250_Gyro_x * mpu9250_Gyro_x/28000000000.0f;
     FTM_PWM_Duty(SERVO_FTM,(u32)(Dir.PID_E.result+SERVO_MIDDLE));

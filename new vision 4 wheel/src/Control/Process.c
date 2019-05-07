@@ -19,8 +19,11 @@ void image_process(void)
   ROADY.Three_lie_end[1] = ROADY.Y[ROADY.Three_Lie[1]];
   ROADY.Three_lie_end[2] = ROADY.Y[ROADY.Three_Lie[2]];
   Road_XY_Rebuild();
+  if(break_info.meeting_flag==0)
+    pattern_shift();
   get_Center(Main_Line);
   CenterlineToDiff(ROADY.Center);
+ 
 }
 //
 void Get_column_end(int col)

@@ -7,6 +7,7 @@
 
 #include "include.h"
 #include "isr.h"
+char run;
 void Error_handler(unsigned char* Log)  //错误处理，ASSERT和HARDFAULT都会掉入此函数
 {
   DisableInterrupts;
@@ -42,9 +43,16 @@ void PIT0_IRQHandler(void)
 {
   PIT_Flag_Clear(PIT0);
   static unsigned char TimeCnt_20ms = 0;
+  static unsigned char TimeCnt_start = 0;
+  TimeCnt_start++;
   TimeCnt_20ms++;
   if(TimeCnt_20ms >= 20/PIT_PERIOD)
     TimeCnt_20ms = 0;
+  if(TimeCnt_start>4)
+  {
+    TimeCnt_start=0;
+    start_process=1;
+  }
   Beep_ISR(&Beep_100ms);
   All_Delay_Task();
   ADC_get_data();
@@ -58,6 +66,21 @@ void PIT0_IRQHandler(void)
     Time_delay_start(&Test_Str);
     Test_flag = 2;
   }
+  if(run_flag==1)
+  {
+     if(((SWITCH_STATUS>>0)&1)==1)
+     {
+       single_control();
+     }
+     else if(((SWITCH_STATUS>>0)&1)==0)
+     {
+       double_control();
+     }
+     
+  
+  }
+  else
+    Speed.using_speed =0;
   if((Dir.Elec_Left<300 && Dir.Elec_Right<300))
   {
     FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE);
@@ -65,7 +88,7 @@ void PIT0_IRQHandler(void)
 //    Dir.PID_D.UP_Limit = 0;
 //    Dir.PID_D.DOWN_Limit = 0;
   }
-  Speed.PID.target = Speed.using_speed;
+ 
   UART_eDMA_datasend();
 }
 
@@ -92,5 +115,16 @@ void DMA0_DMA16_IRQHandler(void)
 void UART2_RX_TX_IRQHandler(void)
 {
   
+  UART_Pend_Char(UART_2,&run);
+//  if(run==0)
+//    return;
+  if(run=='a')
+  {
+    run_flag=1;
+  }
+  else if(run=='b')
+  {
+    run_flag=0;
+  }
 }
 

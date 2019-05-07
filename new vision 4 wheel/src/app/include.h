@@ -12,6 +12,7 @@
 #include "MKV58F24.h"
 #include "core_cm7.h"
 #include "arm_math.h"
+#include "stdio.h"
 
 //FSL
 #include "pin_mux.h"
@@ -65,6 +66,7 @@
 #include "Process.h"
 #include "tools.h"
 #include "event_delay.h"
+#include "breakage_process.h"
 
 
 
@@ -84,5 +86,13 @@ extern u8 Test_flag;
 extern Time_Delay_STR Test_Str;
 extern u8 LCD_DISPLAY_FLAG;
 extern Speed_Status Speed;
+extern int run_flag;
+extern u8 SWITCH_STATUS;
 
+//特殊元素处理参数
+extern int start_process;
+//断路参数
+extern Break_Data break_info;
+extern Angle_Data angle_info;
+extern Back_Data  back_info; 
 #endif /* INCLUDE_H_ */

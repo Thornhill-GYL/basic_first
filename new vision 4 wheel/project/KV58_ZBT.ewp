@@ -2153,6 +2153,12 @@
             </file>
         </group>
         <file>
+            <name>$PROJ_DIR$\..\src\Control\breakage_process.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\Control\breakage_process.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\src\Control\Control.c</name>
         </file>
         <file>

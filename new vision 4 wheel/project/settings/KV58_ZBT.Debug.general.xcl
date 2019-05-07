@@ -1,14 +1,14 @@
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armproc.dll" 
+"D:\Program Files (x86)\IAR8.32\arm\bin\armproc.dll" 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armjlink2.dll" 
+"D:\Program Files (x86)\IAR8.32\arm\bin\armjlink2.dll" 
 
-"D:\5_6-4-wheel\new vision 4 wheel\project\Debug\Exe\KV58_ZBT.out" 
+"F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\Debug\Exe\KV58_ZBT.out" 
 
---plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armbat.dll" 
+--plugin="D:\Program Files (x86)\IAR8.32\arm\bin\armbat.dll" 
 
---device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\NXP\KV5x.dmac" 
+--device_macro="D:\Program Files (x86)\IAR8.32\arm\config\debugger\NXP\KV5x.dmac" 
 
---flash_loader="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\NXP\FlashKV5xF1M0.board" 
+--flash_loader="D:\Program Files (x86)\IAR8.32\arm\config\flashloader\NXP\FlashKV5xF1M0.board" 
 
 
 
