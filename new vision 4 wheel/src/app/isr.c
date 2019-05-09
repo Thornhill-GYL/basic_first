@@ -59,7 +59,20 @@ void PIT0_IRQHandler(void)
   Motor_control();
   if(TimeCnt_20ms==1)
   {
-    Dir_control();
+   
+       if(AD_in==1&&move_info.normal_flag==0&&((SWITCH_STATUS>>1)&1)==0)
+      {
+          if(move_info.diff_flag==0)
+          {
+          move_info.start_out_flag=1;
+          }
+          else
+            move_info.start_out_flag=0;
+          FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE-540);
+       }
+    
+    else
+      Dir_control();
   }
   if(Test_flag == 1)
   {
@@ -81,12 +94,10 @@ void PIT0_IRQHandler(void)
   }
   else
     Speed.using_speed =0;
-  if((Dir.Elec_Left<300 && Dir.Elec_Right<300))
+  
+  if(move_info.quit_safe!=1)//在断路过程中取消安全保护
   {
-    FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE);
-    Speed.using_speed = 0;
-//    Dir.PID_D.UP_Limit = 0;
-//    Dir.PID_D.DOWN_Limit = 0;
+    keep_safe();
   }
  
   UART_eDMA_datasend();
@@ -125,6 +136,10 @@ void UART2_RX_TX_IRQHandler(void)
   else if(run=='b')
   {
     run_flag=0;
+  }
+  if(run=='c')
+  {
+    move_info.go_back_flag=1;
   }
 }
 

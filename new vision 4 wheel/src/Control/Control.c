@@ -278,7 +278,14 @@ void Elec_get_center()
     
     Dir.Dir_E_error = now_err;
 }
-
+void keep_safe()
+{
+   if((Dir.Elec_Left<300 && Dir.Elec_Right<300))
+  {
+    FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE);
+    Speed.using_speed = 0;
+  }
+}
 
 
 

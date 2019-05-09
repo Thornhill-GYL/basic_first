@@ -3,6 +3,8 @@
 Break_Data break_info;
 Angle_Data angle_info;
 Back_Data  back_info;
+Move_Data move_info;
+int AD_in=0;
 void break_data_init(void)//断路参数初始化
 {
     break_info.middle_stable=160;
@@ -413,7 +415,17 @@ void pattern_shift(void)
     if(break_info.sure_flag==1)
     {
         Dir.Dir_mode=Elec_Mode;
-        back_straight(break_info.breakage_line-5);
+        if(((SWITCH_STATUS>>1)&1)==1)
+     {
+       back_straight(break_info.breakage_line-5);
+     }
+     else if(((SWITCH_STATUS>>1)&1)==0)
+     {
+       if(move_info.normal_flag==1)
+           back_straight(break_info.breakage_line-5);
+     }
+        
+      
     }
     else
     {
@@ -434,10 +446,7 @@ void detect_led(void)
     {
       LED_YELLOW;
     }
-//    else 
-//    {
-//      LED_NO;
-//    }
+
   }
 }
 void single_control(void)
@@ -451,12 +460,74 @@ void single_control(void)
 }
 void double_control(void)
 {
-  
+  breakage_move();
 }
 void breakage_move(void)
 {
-    if(break_info.breakage_flag==1)
+  
+  static unsigned int Timestop=0;
+  static unsigned int Timeback=0;
+  //在无通信下的回来
+  
+    if(break_info.sure_flag==1)
     {
-
+      ad_breakage();
+      if(move_info.start_out_flag==1)
+      {
+        Timestop++;
+        move_info.quit_safe=1;
+        move_info.Dist_L+=Timestop*Speed.Speed_L;
+        move_info.Dist_R+=Timestop*Speed.Speed_R;
+        move_info.aver_D=(int)((move_info.Dist_L+move_info.Dist_R)/2);
+      }
+     if(move_info.aver_D>=400000&&move_info.go_back_flag==0)
+      {
+        move_info.diff_flag=1;
+        move_info.start_out_flag=0;
+        move_info.get_Dist_L=move_info.Dist_L;
+        move_info.get_Dist_R=move_info.Dist_R;
+        Speed.using_speed=0;
+      }
+      else if(move_info.go_back_flag==1&&move_info.normal_flag==0)
+      {
+        Timeback++;
+        Speed.using_speed=-60;
+        move_info.get_Dist_L+=Timeback*Speed.Speed_L;
+        move_info.get_Dist_R+=Timeback*Speed.Speed_R;
+       if(move_info.get_Dist_L<=0&&move_info.get_Dist_R<=0)
+        {
+          move_info.normal_flag=1;
+          move_info.get_Dist_L=0;
+          move_info.get_Dist_R=0;
+          move_info.Dist_L=0;
+          move_info.Dist_R=0;
+        }
+      }
+     else if(move_info.normal_flag==1)
+      {
+          single_control();
+          move_info.quit_safe=0;
+        
+      }
+      else
+        single_control();
+     
+     
+     
+    }
+    else
+      single_control();
+}
+void ad_breakage(void)
+{
+    int ad_detect=0;
+    ad_detect=ADC0_Once(ADC0_SE5a,ADC_12bit);
+    if(ad_detect<5)
+        ad_detect=5;
+    if(ad_detect>4050)
+        ad_detect=4050;
+    if(ad_detect>2800)
+    {
+        AD_in=1;
     }
 }

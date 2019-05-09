@@ -47,6 +47,19 @@ typedef struct
     int back_straight;
     int back_sure;
 }Back_Data;
+typedef struct
+{
+    int start_out_flag;
+    int go_back_flag;
+    int normal_flag;
+    int diff_flag;
+    int quit_safe;
+    long int Dist_L;
+    long int Dist_R;
+    long int get_Dist_L;
+    long int get_Dist_R;
+    long int aver_D;
+}Move_Data;
 
 int angle_count(int using_line);//计算点
 int angle_breakage(int using_line);//使用角来判断断路
@@ -59,7 +72,9 @@ void back_straight(int using_line);//重回直道
 void break_data_init(void);
 void pattern_shift(void);//模式切换
 void detect_led(void);//LED灯亮检测
-void breakage_move(void);
-void single_control(void);
-void double_control(void);
+void breakage_move(void);//双车断路会车时运动
+void single_control(void);//断路单车控制
+void double_control(void);//断路栓车控制
+void ad_breakage(void);//检测黑胶带
+extern int AD_in;
 #endif

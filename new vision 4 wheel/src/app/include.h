@@ -95,4 +95,5 @@ extern int start_process;
 extern Break_Data break_info;
 extern Angle_Data angle_info;
 extern Back_Data  back_info; 
+extern Move_Data  move_info;
 #endif /* INCLUDE_H_ */

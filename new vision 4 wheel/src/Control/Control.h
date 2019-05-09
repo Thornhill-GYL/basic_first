@@ -50,4 +50,5 @@ void meeting_pre(void);
 void god_with_us(void);
 void Start_Slow_Run(void);
 void Start_Slow_Run2(void);
+void keep_safe(void);
 #endif
