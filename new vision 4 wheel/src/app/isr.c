@@ -44,8 +44,10 @@ void PIT0_IRQHandler(void)
   PIT_Flag_Clear(PIT0);
   static unsigned char TimeCnt_20ms = 0;
   static unsigned char TimeCnt_start = 0;
+  static unsigned int  TimeCnt_1s = 0;
   TimeCnt_start++;
   TimeCnt_20ms++;
+  TimeCnt_1s++;
   if(TimeCnt_20ms >= 20/PIT_PERIOD)
     TimeCnt_20ms = 0;
   if(TimeCnt_start>4)
@@ -53,10 +55,13 @@ void PIT0_IRQHandler(void)
     TimeCnt_start=0;
     start_process=1;
   }
+  if(TimeCnt_1s >= 1000/PIT_PERIOD)
+    TimeCnt_1s = 0;
   Beep_ISR(&Beep_100ms);
-  All_Delay_Task();
+  
   ADC_get_data();
   Motor_control();
+  All_Delay_Task();
   if(TimeCnt_20ms==1)
   {
    
@@ -74,11 +79,7 @@ void PIT0_IRQHandler(void)
     else
       Dir_control();
   }
-  if(Test_flag == 1)
-  {
-    Time_delay_start(&Test_Str);
-    Test_flag = 2;
-  }
+
   if(run_flag==1)
   {
       if(((SWITCH_STATUS>>1)&1)==1)
@@ -98,6 +99,11 @@ void PIT0_IRQHandler(void)
   if(move_info.quit_safe!=1)//在断路过程中取消安全保护
   {
     keep_safe();
+  }
+  if(TimeCnt_1s==1)
+  {
+    OV7725_fps = OV7725_cnt;
+    OV7725_cnt = 0;
   }
  
   UART_eDMA_datasend();

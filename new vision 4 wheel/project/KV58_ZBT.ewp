@@ -360,6 +360,7 @@
                     <state>$PROJ_DIR$\..\src\Control\menu</state>
                     <state>$PROJ_DIR$\..\src\fatfs</state>
                     <state>$PROJ_DIR$\..\src\Control\menu</state>
+                    <state>$PROJ_DIR$\..\src\app\Process</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2101,6 +2102,33 @@
     </configuration>
     <group>
         <name>App</name>
+        <group>
+            <name>Process</name>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\breakage_process.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\breakage_process.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\Cross.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\Cross.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\Island.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\Island.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\Process.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\Process.h</name>
+            </file>
+        </group>
         <file>
             <name>$PROJ_DIR$\..\src\app\define.c</name>
         </file>
@@ -2153,12 +2181,6 @@
             </file>
         </group>
         <file>
-            <name>$PROJ_DIR$\..\src\Control\breakage_process.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\src\Control\breakage_process.h</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\..\src\Control\Control.c</name>
         </file>
         <file>
@@ -2193,12 +2215,6 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\src\Control\pid.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\src\Control\Process.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\src\Control\Process.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\src\Control\tools.c</name>

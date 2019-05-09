@@ -18,6 +18,7 @@ void Loop(void)
   {
     old_Memory_use_Flag = Memory_use_Flag;
     Image_Flag=0;
+    OV7725_cnt++;
     image_process();
     if(LCD_DISPLAY_FLAG==1)
     {

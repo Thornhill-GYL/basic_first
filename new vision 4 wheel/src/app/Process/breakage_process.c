@@ -422,7 +422,9 @@ void pattern_shift(void)
      else if(((SWITCH_STATUS>>1)&1)==0)
      {
        if(move_info.normal_flag==1)
+       {
            back_straight(break_info.breakage_line-5);
+       }
      }
         
       
@@ -507,7 +509,7 @@ void breakage_move(void)
       {
           single_control();
           move_info.quit_safe=0;
-        
+//          back_straight(break_info.breakage_line-5);
       }
       else
         single_control();

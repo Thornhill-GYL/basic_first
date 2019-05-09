@@ -65,6 +65,8 @@
 #include "pid.h"
 #include "Process.h"
 #include "tools.h"
+#include "Cross.h"
+#include "Island.h"
 #include "event_delay.h"
 #include "breakage_process.h"
 
@@ -82,8 +84,6 @@ extern int Main_Line;
 extern Dir_STR Dir;
 extern Block_Data Block;
 extern Beep_Str Beep_100ms;
-extern u8 Test_flag;
-extern Time_Delay_STR Test_Str;
 extern u8 LCD_DISPLAY_FLAG;
 extern Speed_Status Speed;
 extern int run_flag;
@@ -96,4 +96,10 @@ extern Break_Data break_info;
 extern Angle_Data angle_info;
 extern Back_Data  back_info; 
 extern Move_Data  move_info;
+//Ê®×Ö
+extern Cross_Data Cross;
+extern u8 Liner_threshold;
+extern Island_Data Island;
+extern u16 OV7725_cnt;
+extern u16 OV7725_fps;
 #endif /* INCLUDE_H_ */

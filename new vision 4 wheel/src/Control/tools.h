@@ -11,6 +11,7 @@
 typedef struct
 {
   u8  flag;
+  u8  dec;
   int cnt;
   int delay_const;
   void (*task)(void);

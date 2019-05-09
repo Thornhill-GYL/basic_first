@@ -35,6 +35,8 @@ F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new visi
 -I
 F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\Control\menu
 -I
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\..\src\app\Process
+-I
 D:\Program Files (x86)\IAR8.32\arm\CMSIS\Core\Include
 -I
 D:\Program Files (x86)\IAR8.32\arm\CMSIS\DSP\Include
@@ -72,6 +74,8 @@ F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new visi
 F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\fatfs
 -I
 F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\Control\menu
+-I
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\src\app\Process
 -I
 D:\Program Files (x86)\IAR8.32\arm\CMSIS\Core\Include
 -I

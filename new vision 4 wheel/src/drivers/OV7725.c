@@ -19,6 +19,8 @@ volatile u8 img_flag = IMG_FINISH;		//图像状态
 edma_tcd_t OV7725_tcd;
 edma_handle_t g_EDMA_Handle;
 edma_config_t userConfig;
+u16 OV7725_cnt = 0;
+u16 OV7725_fps = 0;
 
 edma_transfer_config_t DMA_Transfer_config;
 

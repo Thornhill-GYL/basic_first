@@ -94,7 +94,7 @@ void Uart_make_data()
 	short int checksum=0;
 	unsigned char xorsum=0,high,low;
 
-	send_data[0][0] = (unsigned short int)(Speed.Rate * 1000);
+	send_data[0][0] = (unsigned short int)(Island.State);
 //        send_data[0][0] = (unsigned short int)(Gyro_ADC.x);
 //	send_data[0][1] = (unsigned short int)(Carspeed.Goal_speed);
 //	send_data[0][2] = (unsigned short int)(30);
@@ -108,7 +108,7 @@ void Uart_make_data()
 //	send_data[1][3] = (unsigned short int)(mpu9250_Gyro_y);
 //
 //	send_data[2][0] = (unsigned short int)(0);
-//        send_data[2][0] = (unsigned short int)(Direction.PWM/10);//Carspeed.I_Limit_PWM_max  Slowdown_Integral
+//        send_data[2][1] = (unsigned short int)(Yaw);//Carspeed.I_Limit_PWM_max  Slowdown_Integral
 //        send_data[2][1] = (unsigned short int)(Carspeed.expect_angle);
 //	send_data[2][1] = (unsigned short int)(Elec_PID.result/10);
 //      send_data[2][0] = (unsigned short int)(Dir_error);
@@ -163,8 +163,11 @@ void Time_delay(Time_Delay_STR * delay)
 {
   if(delay->flag)
   {
-    delay->cnt -= PIT_PERIOD;
-    if(delay->cnt == 0)
+    if(delay->dec == PIT_DEC)
+      delay->cnt -= PIT_PERIOD;
+    else if(delay->dec == DIS_DEC)
+      delay->cnt -= Speed.Speed_All;
+    if(delay->cnt <= 0)
     {
       delay->flag = 0;
       (*(delay->task))();
