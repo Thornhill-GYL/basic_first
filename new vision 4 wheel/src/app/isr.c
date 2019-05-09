@@ -84,11 +84,18 @@ void PIT0_IRQHandler(void)
   {
       if(((SWITCH_STATUS>>1)&1)==1)
      {
-       single_control();
+       if(start_info.final_stop==0)
+          single_control();
+       else
+         single_start_move();
+         
      }
      else if(((SWITCH_STATUS>>1)&1)==0)
      {
+       if(start_info.final_stop==0)
        double_control();
+       else
+         double_start_move();
      }
      
   
@@ -146,6 +153,10 @@ void UART2_RX_TX_IRQHandler(void)
   if(run=='c')
   {
     move_info.go_back_flag=1;
+  }
+  if(run=='d')
+  {
+    start_info.twice_stop=1;
   }
 }
 

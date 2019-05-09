@@ -24,6 +24,8 @@ void image_process(void)
   Cross_process();
   if(break_info.meeting_flag==0&&Island.State==NoIsland)
     pattern_shift();
+  if(start_info.final_stop!=2&&break_info.meeting_flag==1)
+    start_operate();
   get_Center(Main_Line);
   CenterlineToDiff(ROADY.Center);
  

@@ -39,6 +39,7 @@ void System_init(void)
   pit_init_ms(PIT0,PIT_PERIOD);
   ADC0_Init();
   break_data_init();
+  start_init();
   NVIC_SetPriority(DMA4_DMA20_IRQn,0);
   NVIC_SetPriority(VSYNC_IRQ,1);
   NVIC_SetPriority(PIT0_IRQn,2);

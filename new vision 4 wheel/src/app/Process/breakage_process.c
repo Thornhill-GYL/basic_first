@@ -462,6 +462,7 @@ void single_control(void)
 }
 void double_control(void)
 {
+  double_start_move();
   breakage_move();
 }
 void breakage_move(void)

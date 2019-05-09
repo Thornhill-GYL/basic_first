@@ -2397,6 +2397,12 @@
             <file>
                 <name>$PROJ_DIR$\..\src\app\Process\Process.h</name>
             </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\start_line.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\app\Process\start_line.h</name>
+            </file>
         </group>
         <file>
             <name>$PROJ_DIR$\..\src\app\define.c</name>

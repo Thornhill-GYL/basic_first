@@ -94,7 +94,7 @@ void Uart_make_data()
 	short int checksum=0;
 	unsigned char xorsum=0,high,low;
 
-	send_data[0][0] = (unsigned short int)(Island.State);
+	send_data[0][0] = (unsigned short int)( start_info.status);
 //        send_data[0][0] = (unsigned short int)(Gyro_ADC.x);
 //	send_data[0][1] = (unsigned short int)(Carspeed.Goal_speed);
 //	send_data[0][2] = (unsigned short int)(30);

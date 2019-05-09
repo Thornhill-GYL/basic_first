@@ -69,6 +69,7 @@
 #include "Island.h"
 #include "event_delay.h"
 #include "breakage_process.h"
+#include "start_line.h"
 
 
 
@@ -102,4 +103,6 @@ extern u8 Liner_threshold;
 extern Island_Data Island;
 extern u16 OV7725_cnt;
 extern u16 OV7725_fps;
+//°ßÂíÏß
+extern Start_Data start_info;
 #endif /* INCLUDE_H_ */
