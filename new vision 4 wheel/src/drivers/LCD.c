@@ -777,11 +777,11 @@ void Send_Image_to_LCD(unsigned char img[CAMERA_H][CAMERA_DMA_NUM])
   {
    for(j = 0;j < CAMERA_W; j++)
     {
-      if(i == ROADY.Y[j])
-        write_word(Red);
-      else if(j == ROAD.Left[i] || j == ROAD.Right[i])
-        write_word(Red);
-      else if(i == Main_Line)
+//      if(i == ROADY.Y[j])
+//       // write_word(Red);
+//      else if(j == ROAD.Left[i] || j == ROAD.Right[i])
+//       // write_word(Red);
+       if(i == Main_Line)
         write_word(COLOR_YELLOW);
 //      else if(i == Island.Image_Start_hang)
 //        write_word(COLOR_GREEN);

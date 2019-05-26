@@ -22,6 +22,7 @@ void image_process(void)
   Road_XY_Rebuild();
   Island_process();
   Cross_process();
+ 
   if(break_info.meeting_flag==0&&Island.State==NoIsland)
     pattern_shift();
   if(start_info.final_stop!=2&&break_info.meeting_flag==1)

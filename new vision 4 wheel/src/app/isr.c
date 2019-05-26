@@ -69,17 +69,20 @@ void PIT0_IRQHandler(void)
       {
           if(move_info.diff_flag==0)
           {
-          move_info.start_out_flag=1;
+             move_info.start_out_flag=1;
           }
           else
-            move_info.start_out_flag=0;
-          FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE-540);
+             move_info.start_out_flag=0;
+          if(((SWITCH_STATUS>>3)&1)==0)
+              FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE+540);
+          else if(((SWITCH_STATUS>>3)&1)==1)
+              FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE-540);
        }
     
     else
       Dir_control();
   }
-
+  
   if(run_flag==1)
   {
       if(((SWITCH_STATUS>>1)&1)==1)
@@ -93,7 +96,7 @@ void PIT0_IRQHandler(void)
      else if(((SWITCH_STATUS>>1)&1)==0)
      {
        if(start_info.final_stop==0)
-       double_control();
+         double_control();
        else
          double_start_move();
      }

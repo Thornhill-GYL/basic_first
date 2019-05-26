@@ -281,7 +281,7 @@ void Elec_get_center()
 void keep_safe()
 {
    if((Dir.Elec_Left<300 && Dir.Elec_Right<300)
-      ||OV7725_fps < 50)
+      /*||OV7725_fps < 50*/)
   {
     FTM_PWM_Duty(SERVO_FTM,SERVO_MIDDLE);
     Speed.using_speed = 0;

@@ -67,7 +67,7 @@ u8 Elec_Island(void)
     
     if(doublt_island!=0)
     {
-      LED_CYAN;
+      //LED_CYAN;
       Island.State = doublt_island;
       if(Island.State==Left_Island_pre)
       {

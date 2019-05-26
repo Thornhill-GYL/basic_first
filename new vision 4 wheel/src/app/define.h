@@ -10,6 +10,7 @@
 
 //Parameter-Do not remove
 #define IMG_PIXEL(y,x) (Image_fire[(x)][(y)/8]>>(7-((y)%8))&1) //摄像头数据解压语句
+#define POINT(x,y,color) {LCD_SetPos(x,x,y,y);write_word(color);}
 #define Camera_CNST 85
 #define NRF_LINKADDRESS {0x74, 0x18, 0x52, 0x96, 0x30}
 #define PIT_PERIOD  (5)

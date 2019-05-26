@@ -1,5 +1,5 @@
-#ifndef __LINK_H__
-#define __LINK_H__
+//#ifndef __LINK_H__
+//#define __LINK_H__
 //typedef struct
 //{
 //  unsigned char Meeting_over;
@@ -30,4 +30,4 @@
 //void Nrf_CarA_Rec(void);
 //void Nrf_Data_Save(void);
 //void meeting_process(void);
-#endif
+//#endif

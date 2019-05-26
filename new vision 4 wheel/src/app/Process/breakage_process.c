@@ -4,6 +4,7 @@ Break_Data break_info;
 Angle_Data angle_info;
 Back_Data  back_info;
 Move_Data move_info;
+Scanbreak_Data scan_info;
 int AD_in=0;
 void break_data_init(void)//断路参数初始化
 {
@@ -187,6 +188,92 @@ int limit_straight(int using_line)//直到限制检测
 
     return temp_flag;
 }
+int back_limit(int using_line)//直到限制检测
+{
+    int temp_flag=0;
+    int left_side=0,right_side=0;
+    int left_flag=0,right_flag=0;
+    int right_gets=0,left_gets=0;
+    int down_line=20;
+    int left_straight;
+    int right_straight;
+    int sum_right=0;
+    int sum_left=0;
+
+
+    right_side=160;//右侧在找到
+    while(!((IMG_PIXEL(right_side+3,using_line))
+            &&(IMG_PIXEL(right_side+2,using_line))
+            &&(IMG_PIXEL(right_side+1,using_line)))
+            &&right_side<CCD_END)
+        right_side++;
+    if(right_side<CCD_END)
+    {
+        right_gets=right_side;
+        right_flag=1;
+    }
+    else
+        right_flag=0;
+    if(right_flag==1)//需要修改一下；
+    {//向下探测五行，从160开始往右边检测，将向下五行的右边界的值记录，进行比较判断，是否在直道）
+        for(int i=using_line;i>using_line-down_line;i--)
+        {
+            if(IMG_PIXEL(right_gets,i)==0)
+            {
+                sum_right++;
+            }
+            else
+                break;
+        }
+    }
+    else
+        sum_right=0;
+    if(sum_right==20)
+        right_straight=1;
+    else
+        right_straight=0;
+
+    //左边直道检测
+    left_side=160;
+    while(!((IMG_PIXEL(left_side-3,using_line))
+           &&(IMG_PIXEL(left_side-2,using_line))
+           &&(IMG_PIXEL(left_side-1,using_line)))
+           &&left_side>CCD_START)
+        left_side--;
+    if(left_side>CCD_START)
+    {
+        left_gets = left_side;
+        left_flag = 1;
+    }
+    else
+        left_flag=0;
+    sum_left=0;
+    if(left_flag==1)
+    {
+        for(int i=using_line;i>using_line-down_line;i--)
+        {
+            if(IMG_PIXEL(left_gets,i)==0)
+            {
+                sum_left++;
+            }
+            else
+                break;
+        }
+    }
+    else
+        sum_left=0;
+    if(sum_left==20)
+        left_straight=1;
+    else
+        left_straight=0;
+    //综合检测
+    if(right_straight==1&&left_straight==1)
+        temp_flag=1;//全局变量
+    else
+        temp_flag=0;
+
+    return temp_flag;
+}
 int angle_count(int using_line)
 {
    angle_info.status_time=0;
@@ -209,31 +296,31 @@ int angle_count(int using_line)
             angle_info.sum_black++;
         }
     }
-    for(int i=0;i<300;i++)
-    {
-        if(angle_info.dot_color[i]==1&&angle_info.status_time==0)
-        {
-            angle_info.status_time=1;
-        }
-        else if(angle_info.status_time==1&&angle_info.dot_color[i]==0)
-        {
-            angle_info.status_time=2;
-        }
-        else if(angle_info.status_time==2&&angle_info.dot_color[i]==1)
-        {
-            angle_info.status_time=3;
-        }
-        else if(angle_info.status_time==3&&angle_info.dot_color[i]==0)
-        {
-            angle_info.status_time=4;
-        }
-        else if(angle_info.status_time==4&&angle_info.dot_color[i]==1)
-        {
-            angle_info.status_time=5;
-        }
-    }
-    if(angle_info.status_time!=3)
-        angle_info.sum_white=0;
+//    for(int i=0;i<300;i++)
+//    {
+//        if(angle_info.dot_color[i]==1&&angle_info.status_time==0)
+//        {
+//            angle_info.status_time=1;
+//        }
+//        else if(angle_info.status_time==1&&angle_info.dot_color[i]==0)
+//        {
+//            angle_info.status_time=2;
+//        }
+//        else if(angle_info.status_time==2&&angle_info.dot_color[i]==1)
+//        {
+//            angle_info.status_time=3;
+//        }
+//        else if(angle_info.status_time==3&&angle_info.dot_color[i]==0)
+//        {
+//            angle_info.status_time=4;
+//        }
+//        else if(angle_info.status_time==4&&angle_info.dot_color[i]==1)
+//        {
+//            angle_info.status_time=5;
+//        }
+//    }
+//    if(angle_info.status_time!=3)
+//        angle_info.sum_white=0;
 
     return angle_info.sum_white;
 }
@@ -382,9 +469,10 @@ void back_straight(int using_line)
 {
 
     back_info.back_part=part_straight(using_line);
-    back_info.back_straight=combine_straight(using_line);
-    //back_info.back_limit=limit_straight(using_line);
-    if(back_info.back_part==1&&(ROADY.Y[160]<(Y_START-20))&&back_info.back_straight==1)
+    // back_info.back_straight=combine_straight(using_line);
+    back_info.back_black=black_straight(using_line+5);
+    back_info.back_limit=back_limit(using_line);
+    if(back_info.back_part==1&&(ROADY.Y[160]<(Y_START-30))&&back_info.back_limit==1&&back_info.back_black==1)
        back_info.back_sure=1;
     else
         back_info.back_sure=0;
@@ -400,9 +488,10 @@ void pattern_shift(void)
 {
     break_info.breakage_flag=normal_breakage(break_info.breakage_line);
     break_info.angle_flag=angle_breakage(break_info.angle_line);
+    
     if(start_process==1&&break_info.sure_flag==0)
     {
-
+        scan_breakage();//测试函数
         if(break_info.breakage_flag==1)
         {
             break_info.sure_flag=1;
@@ -411,19 +500,27 @@ void pattern_shift(void)
         {
             break_info.sure_flag=1;
         }
+        if(scan_info.scan_flag==1)
+        {
+          break_info.sure_flag=1;
+        }
+        
+          
     }//判断是否改变循迹模式
     if(break_info.sure_flag==1)
     {
         Dir.Dir_mode=Elec_Mode;
         if(((SWITCH_STATUS>>1)&1)==1)
      {
-       back_straight(break_info.breakage_line-5);
+       //back_straight(break_info.breakage_line-5);//在优秀的不反光的赛道好使
+       back_straight(Y_START);
      }
      else if(((SWITCH_STATUS>>1)&1)==0)
      {
        if(move_info.normal_flag==1)
        {
-           back_straight(break_info.breakage_line-5);
+          // back_straight(break_info.breakage_line-5);
+         back_straight(Y_START);
        }
      }
         
@@ -448,6 +545,10 @@ void detect_led(void)
     {
       LED_YELLOW;
     }
+    else if(scan_info.scan_flag==1)
+    {
+      LED_PURPLE;
+    }
 
   }
 }
@@ -459,6 +560,7 @@ void single_control(void)
   }
   else if(Dir.Dir_mode==Camera_Mode)
     Speed.using_speed=Initialization.Speedtarget;
+    
 }
 void double_control(void)
 {
@@ -534,3 +636,236 @@ void ad_breakage(void)
         AD_in=1;
     }
 }
+
+//int temp_max;
+int exterm_l;
+int exterm_r;
+int left_out=0;
+//  int right_out=0;
+//  int dis_out=0;
+void scan_breakage(void)
+{
+  int i=0,j=0,k=0;
+//  int temp_tx;
+//  int sum_left_one=0;
+  int sum_left=0;
+  k=0;
+  for(int i=0;i<300;i++)
+  {
+    scan_info.up_line[i].x=0;
+    scan_info.up_line[i].y=0;
+  }
+  for(i=CCD_START;i<CCD_END;i++)
+  {
+    
+   
+    if(k<300)
+    {
+     scan_info.up_line[k].x=i;
+     
+     j=Y_START-10;
+     while(!((IMG_PIXEL(i,j-2))
+            &&(IMG_PIXEL(i,j-1)))
+            &&j>Y_END+30)
+       j--;
+     if(j>Y_END+30)
+     {
+       scan_info.up_line[k].y=j;
+     }
+     else 
+     {
+       scan_info.up_line[k].y=1;
+     }
+     k++;
+    } 
+    if(LCD_DISPLAY_FLAG==1)
+     POINT(scan_info.up_line[k].x,scan_info.up_line[k].y-80,COLOR_RED);
+  }
+  scan_info.far_y=scan_info.up_line[0].y;
+  scan_info.far_x=scan_info.up_line[0].x;
+  for(i=1;i<300;i++)
+  {
+    if((scan_info.far_y>scan_info.up_line[i].y)&&(scan_info.up_line[i].y!=0))
+    {
+      scan_info.far_y=scan_info.up_line[i].y;
+      scan_info.far_x=scan_info.up_line[i].x;
+      scan_info.count_lie=i;
+    }
+  }
+     scan_sure();
+  exterm_l=scan_info.up_line[0].y- scan_info.far_y;
+  exterm_r=scan_info.up_line[259].y-scan_info.far_y;
+  k=1;
+  for(i=0;i<5;i++)
+  {
+    
+    scan_info.delat_ly[i]=scan_info.up_line[scan_info.count_lie-k].y-scan_info.far_y;
+    scan_info.delat_ry[i]=scan_info.up_line[scan_info.count_lie+k].y-scan_info.far_y;
+    if(scan_info.delat_ly[i]<10&&scan_info.delat_ly[i]>0)
+    {
+      sum_left++;
+    }
+    else
+      sum_left=0;
+    k=1+k;
+  }
+  if(sum_left==5)
+  {
+    left_out=1;
+  }
+  else
+    left_out=0;
+//  
+//  for(i=0;i<300;i++)
+//  {
+//    for(j=i+1;j<300;j++)
+//    {
+//     
+//      if(scan_info.up_line[i].y<(Y_START-10)&&scan_info.up_line[i].y==scan_info.up_line[j].y)
+//        temp_tx=scan_info.up_line[j].x-scan_info.up_line[i].x;
+//      if(temp_tx>10)
+//        scan_info.delat_ty[i]=temp_tx;
+//      else
+//        scan_info.delat_ty[i]=0;
+//    }
+//  }
+// 
+//  
+// 
+//  for(int i=0;i<5;i++)
+//  {
+//    if(scan_info.delat_ly[i]>=1&&scan_info.delat_ly[i]<=5)
+//    {
+//      sum_left++;
+//      if(scan_info.delat_ly[i]==1)
+//      {
+//        sum_left_one++;
+//      }
+//    }
+//    else
+//    {
+//      sum_left=0;
+//      break;
+//    }
+//  }
+//  if(sum_left==5&&sum_left_one!=5)
+//  {
+//    left_out=1;
+//  }
+//  else
+//  {
+//    left_out=0;
+//  }
+// 
+//  for(int i=0;i<5;i++)
+//  {
+//    if(scan_info.delat_ry[i]>=0&&scan_info.delat_ry[i]<=6)
+//    {
+//      right_out=1;
+//    }
+//    else
+//    {
+//      right_out=0;
+//      break;
+//    }
+//  }
+//  if(temp_max<150&&exterm_l<=60&&exterm_l>0&&exterm_r>10&&exterm_r<=60)
+//  {
+//    dis_out=1;
+//  }
+//  else
+//    dis_out=0;
+
+  
+}
+int left_minus[3];
+int right_minus[3];
+int final_minus[3];
+int final_sum=0;
+
+void scan_sure(void)
+{
+  int middle_dot=0;
+  final_sum=0;
+   scan_info.scan_flag=0;
+  for(int i=0;i<3;i++)
+  {
+     final_minus[i]=-1;
+      left_minus[i]=-1;
+      right_minus[i]=-1;
+  }
+  if(scan_info.far_y>=125&&scan_info.far_y<=170)
+  {
+    scan_info.three_hang=scan_info.far_y+5;
+    
+    for(int i=0;i<3;i++)
+    {
+      //LEFT
+      middle_dot=scan_info.far_x;
+     while(!((IMG_PIXEL(middle_dot-3,scan_info.three_hang+i))
+            &&(IMG_PIXEL(middle_dot-2,scan_info.three_hang+i))
+              &&(IMG_PIXEL(middle_dot-1,scan_info.three_hang+i)))
+            &&middle_dot>CCD_START)
+       middle_dot--;
+     if(middle_dot>CCD_START)
+     {
+       left_minus[i]=middle_dot;
+     }
+     else
+     {
+       left_minus[i]=-1;
+     }
+     //right
+     middle_dot=scan_info.far_x;
+      while(!((IMG_PIXEL(middle_dot+3,scan_info.three_hang+i))
+            &&(IMG_PIXEL(middle_dot+2,scan_info.three_hang+i))
+              &&(IMG_PIXEL(middle_dot+1,scan_info.three_hang+i)))
+            &&middle_dot<CCD_END)
+       middle_dot++;
+      if(middle_dot<CCD_END)
+      {
+        right_minus[i]=middle_dot;
+      }
+      else 
+        right_minus[i]=-1;
+      
+      
+      if(left_minus[i]!=-1&&right_minus[i]!=-1)
+      {
+        final_minus[i]=right_minus[i]-left_minus[i];
+      }
+      else
+      {
+        final_minus[i]=-1;
+      }
+      
+      if(final_minus[i]>10&&final_minus[i]<100)
+      {
+        final_sum++;
+      }
+      else
+        final_sum=0;
+    }
+    if(final_sum==3&&left_out==1)
+    {
+      scan_info.scan_flag=1;
+    }
+    else
+      scan_info.scan_flag=0;
+    
+    
+  }
+  else //if(scan_info.far_y==1)
+  {
+    for(int i=0;i<3;i++)
+    {
+      final_minus[i]=-1;
+      left_minus[i]=-1;
+      right_minus[i]=-1;
+    }
+    final_sum=0;
+  }
+        
+     
+}
+  

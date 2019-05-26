@@ -27,11 +27,19 @@ void Loop(void)
 //       Draw_single_line('H',break_info.breakage_line-IMAGE_CORRECT,COLOR_BLUE);
 //       Draw_single_line('H',break_info.breakage_line+5-IMAGE_CORRECT,COLOR_YELLOW);
 //       Draw_single_line('H',break_info.angle_line-IMAGE_CORRECT,COLOR_RED);
-       Draw_single_line('H',start_info.detect_line-IMAGE_CORRECT,COLOR_RED);
+       //Draw_single_line('H',start_info.detect_line-IMAGE_CORRECT,COLOR_RED);
+        Draw_single_line('H',Y_END+30-IMAGE_CORRECT,COLOR_BLUE);
+        Draw_single_line('H',Y_START-10-IMAGE_CORRECT,COLOR_RED);
+         Draw_single_line('H',scan_info.three_hang-IMAGE_CORRECT,COLOR_RED);
+         Draw_single_line('L',CCD_START,COLOR_BLUE);
+        Draw_single_line('L',CCD_END,COLOR_RED);
        sprintf((char *)buf,"black_flag=%d straight_flag=%d  ",break_info.black_flag,break_info.combine_flag);
        Gui_DrawFont_GBK24(10,170, COLOR_BLACK,COLOR_WHITE,buf);
        sprintf((char *)buf,"angle_flag=%d  ",break_info.angle_flag);
        Gui_DrawFont_GBK24(10,190, COLOR_BLACK,COLOR_WHITE,buf);
+       sprintf((char *)buf,"far_x=%d   far_y=%d    ",scan_info.far_x,scan_info.far_y);
+       Gui_DrawFont_GBK24(10,210, COLOR_BLACK,COLOR_WHITE,buf);
+         
     }
     
     

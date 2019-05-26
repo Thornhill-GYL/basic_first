@@ -1,0 +1,922 @@
+###############################################################################
+#
+# IAR ELF Linker V8.32.2.178/W32 for ARM                  26/May/2019  11:11:16
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  
+#        F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Exe\KV58_ZBT.out
+#    Map file     =  
+#        F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\List\KV58_ZBT.map
+#    Command line =  
+#        -f C:\Users\lenovo\AppData\Local\Temp\EWE023.tmp
+#        ("F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\ADC.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\breakage_process.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\common.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Control.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Cross.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\define.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\diskio.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\DMA.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\event_delay.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\ff.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\ffsystem.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\ffunicode.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Flash.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_assert.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_clock.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_common.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_debug_console.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_dma_manager.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_dmamux.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_dspi.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_dspi_edma.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_edma.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_gpio.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_hsadc.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_io.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_log.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_notifier.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_pit.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_sdspi.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_sdspi_disk.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_shell.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_sim.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_str.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_uart.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fsl_uart_edma.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\FTM.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\fuzzy.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\gdisp_lld_ILI9341.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\gfx_mk.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\GPIO.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\i2c.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\inertial_navigation.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Island.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\isr.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\LCD.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\LED_BEEP.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Link.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Loop.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\LPTMR.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Meeting.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\menu.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\MKV58F1M0xxx24_Project.o"
+#        "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\mpu9250.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\mykey.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\mymath.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\NRF24L01.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\OV7725.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\pid.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\pin_mux.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\pit.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Process.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\SCCB.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\semihost_hardfault.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\SPI.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\start_line.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\startup.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\startup_MKV58F24.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\Sys_init.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\system_MKV58F24.o" "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\TOF.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\tools.o" "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Obj\UART.o" --no_out_extension -o
+#        "F:\competition\smart car\2019double
+#        car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\Exe\KV58_ZBT.out" --map "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\Debug\List\KV58_ZBT.map" --config "F:\competition\smart
+#        car\2019double car\5.1after_four_wheel\basic_first\new vision 4
+#        wheel\project\..\project\MKV58F1M0xxx24_flash.icf" --semihosting
+#        --entry __iar_program_start "D:\Program Files
+#        (x86)\IAR8.32\arm\CMSIS\Lib\IAR\iar_cortexM7ls_math.a" --vfe
+#        --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor                   = *
+__Heap_Handler              = DLMalloc
+__SystemLibrary             = DLib
+__dlib_jmp_buf_num_elements = 16
+__dlib_version              = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The advanced heap was selected because the application calls memory
+allocation functions outside of system library functions, and there
+are calls to deallocation functions in the application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x1000'0000 { ro section .intvec };
+"P1":  place in [from 0x1000'0400 to 0x1000'040f] { section FlashConfig };
+"P2":  place in [from 0x1000'0000 to 0x1000'03ff] |
+                [from 0x1000'0410 to 0x100f'ffff] { ro };
+define block RW { rw };
+"P3":  place in [from 0x2000'0000 to 0x2001'fbff] { block RW };
+define block ZI { zi };
+"P4":  place in [from 0x2000'0000 to 0x2001'fbff] { block ZI };
+define block CSTACK with size = 1K, alignment = 8 { };
+"P6":  place in [from 0x2001'fc00 to 0x2001'ffff] { block CSTACK };
+initialize by copy { rw, section .textrw };
+
+No sections matched the following patterns:
+
+  section m_interrupts_ram  in "P7"
+  section m_itcm            in "P8"
+  section m_ocram           in "P9"
+
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                       0x400
+  .intvec            ro code  0x1000'0000   0x400  startup_MKV58F24.o [1]
+                            - 0x1000'0400   0x400
+
+"P1":                                        0x10
+  FlashConfig        ro code  0x1000'0400    0x10  startup_MKV58F24.o [1]
+                            - 0x1000'0410    0x10
+
+"P2":                                      0x7ffc
+  .text              ro code  0x1000'0410   0xf40  breakage_process.o [1]
+  .text              ro code  0x1000'1350   0x228  start_line.o [1]
+  .text              ro code  0x1000'1578    0x78  ADC.o [1]
+  .text              ro code  0x1000'15f0   0x7e4  LCD.o [1]
+  .text              ro code  0x1000'1dd4   0x254  GPIO.o [1]
+  .text              ro code  0x1000'2028    0x2c  common.o [1]
+  .text              ro code  0x1000'2054   0x294  isr.o [1]
+  .text              ro code  0x1000'22e8   0x350  FTM.o [1]
+  .text              ro code  0x1000'2638   0x1e4  OV7725.o [1]
+  .text              ro code  0x1000'281c    0xa4  LED_BEEP.o [1]
+  .text              ro code  0x1000'28c0   0x5a0  Control.o [1]
+  .text              ro code  0x1000'2e60    0x84  event_delay.o [1]
+  .text              ro code  0x1000'2ee4   0x224  tools.o [1]
+  .text              ro code  0x1000'3108   0x87c  fsl_edma.o [1]
+  .text              ro code  0x1000'3984    0x2c  UART.o [1]
+  .text              ro code  0x1000'39b0   0x144  DMA.o [1]
+  .text              ro code  0x1000'3af4   0x330  SCCB.o [1]
+  .text              ro code  0x1000'3e24   0x126  pid.o [1]
+  .text              ro code  0x1000'3f4a    0x3a  zero_init3.o [4]
+  .text              ro code  0x1000'3f84    0x48  atanf.o [3]
+  .text              ro code  0x1000'3fcc   0x1b4  tan32.o [3]
+  .text              ro code  0x1000'4180    0x18  fsl_assert.o [1]
+  .text              ro code  0x1000'4198   0x3a8  fsl_uart.o [1]
+  .text              ro code  0x1000'4540   0x2f4  fsl_clock.o [1]
+  .text              ro code  0x1000'4834    0x64  fsl_dmamux.o [1]
+  .text              ro code  0x1000'4898   0x318  fsl_uart_edma.o [1]
+  .text              ro code  0x1000'4bb0    0x3a  ABImemset48.o [4]
+  .text              ro code  0x1000'4bea     0xa  xsprout.o [2]
+  .text              ro code  0x1000'4bf4    0xa4  xatanf.o [3]
+  .text              ro code  0x1000'4c98    0x6c  fsl_debug_console.o [1]
+  .text              ro code  0x1000'4d04     0x6  ABImemclr4.o [4]
+  .text              ro code  0x1000'4d0a   0x2ce  fsl_str.o [1]
+  .text              ro code  0x1000'4fd8    0x4c  fsl_log.o [1]
+  .text              ro code  0x1000'5024    0x36  strlen.o [4]
+  .text              ro code  0x1000'505a     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'505c    0x38  fsl_io.o [1]
+  .text              ro code  0x1000'5094   0x97c  Island.o [1]
+  .text              ro code  0x1000'5a10    0x22  S32ToDbl.o [3]
+  .text              ro code  0x1000'5a32     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'5a34   0x246  DblDiv.o [3]
+  .text              ro code  0x1000'5c7a     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'5c7c    0xe2  DblSub.o [3]
+  .text              ro code  0x1000'5d5e     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'5d60   0x17a  DblAdd.o [3]
+  .text              ro code  0x1000'5eda     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'5edc   0x1a2  DblMul.o [3]
+  .text              ro code  0x1000'607e     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'6080    0x3a  DblToS32.o [3]
+  .text              ro code  0x1000'60ba     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'60bc   0x598  Process.o [1]
+  .text              ro code  0x1000'6654    0x58  mymath.o [1]
+  .text              ro code  0x1000'66ac   0x764  Cross.o [1]
+  .rodata            const    0x1000'6e10   0x300  fsl_uart.o [1]
+  .text              ro code  0x1000'7110   0x1f6  lz77_init.o [4]
+  .text              ro code  0x1000'7306     0x6  abort.o [2]
+  .text              ro code  0x1000'730c    0x14  exit.o [5]
+  .rodata            const    0x1000'7320   0x1e8  fsl_edma.o [1]
+  .text              ro code  0x1000'7508   0x168  Sys_init.o [1]
+  .text              ro code  0x1000'7670    0x60  pit.o [1]
+  .text              ro code  0x1000'76d0   0x15c  Loop.o [1]
+  .text              ro code  0x1000'782c    0x40  sprintf.o [2]
+  .text              ro code  0x1000'786c   0x13e  xprintftiny.o [2]
+  .text              ro code  0x1000'79aa     0x2  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'79ac    0xb8  system_MKV58F24.o [1]
+  .rodata            const    0x1000'7a64    0xb0  fsl_dmamux.o [1]
+  .text              ro code  0x1000'7b14    0xa4  MKV58F1M0xxx24_Project.o [1]
+  .rodata            const    0x1000'7bb8    0x7c  tools.o [1]
+  .rodata            const    0x1000'7c34    0x74  fsl_log.o [1]
+  .rodata            const    0x1000'7ca8    0x74  fsl_uart_edma.o [1]
+  .rodata            const    0x1000'7d1c    0x70  fsl_clock.o [1]
+  .text              ro code  0x1000'7d8c    0x30  startup.o [1]
+  .rodata            const    0x1000'7dbc    0x2c  fsl_assert.o [1]
+  .text              ro code  0x1000'7de8    0x28  data_init.o [4]
+  .rodata            const    0x1000'7e10    0x24  Loop.o [1]
+  .text              ro code  0x1000'7e34    0x22  fpinit_M.o [3]
+  .iar.init_table    const    0x1000'7e58    0x2c  - Linker created -
+  .text              ro code  0x1000'7e84    0x1e  cmain.o [4]
+  .text              ro code  0x1000'7ea2     0x4  low_level_init.o [2]
+  .text              ro code  0x1000'7ea6     0x4  exit.o [2]
+  .text              ro code  0x1000'7eac     0xa  cexit.o [4]
+  .text              ro code  0x1000'7eb8    0x1c  startup_MKV58F24.o [1]
+  .text              ro code  0x1000'7ed4     0xc  cstartup_M.o [4]
+  .text              ro code  0x1000'7ee0     0x4  startup_MKV58F24.o [1]
+  .rodata            const    0x1000'7ee4     0x0  zero_init3.o [4]
+  .rodata            const    0x1000'7ee4     0x0  lz77_init.o [4]
+  Initializer bytes  const    0x1000'7ee4   0x528  <for RW-1>
+                            - 0x1000'840c  0x7ffc
+
+"P3-P4", part 1 of 2:                      0x6151
+  RW                          0x2000'0000  0x6151  <Block>
+    RW-1                      0x2000'0000  0x6151  <Init block>
+      .data          inited   0x2000'0000     0x4  common.o [1]
+      .data          inited   0x2000'0004     0x4  common.o [1]
+      .data          inited   0x2000'0008     0x4  common.o [1]
+      .data          inited   0x2000'000c     0x4  common.o [1]
+      .data          inited   0x2000'0010    0x10  Control.o [1]
+      .data          inited   0x2000'0020    0xd0  Control.o [1]
+      .data          inited   0x2000'00f0    0x14  Cross.o [1]
+      .data          inited   0x2000'0104     0x8  fsl_clock.o [1]
+      .data          inited   0x2000'010c    0x28  inertial_navigation.o [1]
+      .data          inited   0x2000'0134    0x68  Island.o [1]
+      .data          inited   0x2000'019c   0x5f4  LCD.o [1]
+      .data          inited   0x2000'0790     0x8  LED_BEEP.o [1]
+      .data          inited   0x2000'0798  0x4b58  OV7725.o [1]
+      .data          inited   0x2000'52f0    0x65  OV7725.o [1]
+      .data          inited   0x2000'5358   0xda8  Process.o [1]
+      .data          inited   0x2000'6100    0x38  Sys_init.o [1]
+      .data          inited   0x2000'6138    0x18  UART.o [1]
+      .data          inited   0x2000'6150     0x1  Process.o [1]
+                            - 0x2000'6151  0x6151
+
+"P3-P4", part 2 of 2:                      0x1e78
+  ZI                          0x2000'6154  0x1e78  <Block>
+    .bss             zero     0x2000'6154    0x74  breakage_process.o [1]
+    .bss             zero     0x2000'61c8   0x550  breakage_process.o [1]
+    .bss             zero     0x2000'6718    0x14  breakage_process.o [1]
+    .bss             zero     0x2000'672c   0xe4c  breakage_process.o [1]
+    .bss             zero     0x2000'7578     0x4  breakage_process.o [1]
+    .bss             zero     0x2000'757c    0x34  breakage_process.o [1]
+    .bss             zero     0x2000'75b0    0x58  Control.o [1]
+    .bss             zero     0x2000'7608     0x4  fsl_clock.o [1]
+    .bss             zero     0x2000'760c    0x80  fsl_edma.o [1]
+    .bss             zero     0x2000'768c     0x8  fsl_io.o [1]
+    .bss             zero     0x2000'7694    0x30  fsl_uart_edma.o [1]
+    .bss             zero     0x2000'76c4    0xe8  Island.o [1]
+    .bss             zero     0x2000'77ac   0x240  Island.o [1]
+    .bss             zero     0x2000'79ec     0x8  isr.o [1]
+    .bss             zero     0x2000'79f4    0x4e  LCD.o [1]
+    .bss             zero     0x2000'7a42     0x2  OV7725.o [1]
+    .bss             zero     0x2000'7a44     0x4  Loop.o [1]
+    .bss             zero     0x2000'7a48     0x4  Process.o [1]
+    .bss             zero     0x2000'7a4c   0x500  start_line.o [1]
+    .bss             zero     0x2000'7f4c     0x4  start_line.o [1]
+    .bss             zero     0x2000'7f50     0x4  Sys_init.o [1]
+    .bss             zero     0x2000'7f54    0x70  tools.o [1]
+    .bss             zero     0x2000'7fc4     0x2  OV7725.o [1]
+    .bss             zero     0x2000'7fc6     0x1  fsl_edma.o [1]
+    .bss             zero     0x2000'7fc7     0x1  isr.o [1]
+    .bss             zero     0x2000'7fc8     0x2  Loop.o [1]
+    .bss             zero     0x2000'7fca     0x1  Sys_init.o [1]
+                            - 0x2000'7fcc  0x1e78
+
+"P6":                                       0x400
+  CSTACK                      0x2001'fc00   0x400  <Block>
+    CSTACK           uninit   0x2001'fc00   0x400  <Block tail>
+                            - 0x2002'0000   0x400
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+  0x1000'840c  0x100f'ffff  0xf'7bf4
+  0x2000'6151  0x2000'6153       0x3
+  0x2000'7fcc  0x2001'fbff  0x1'7c34
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1e77:
+          0x2000'6154  0x1e77
+
+Copy/lz77 (__iar_lz77_init3)
+    1 source range, total size 0x528 (5% of destination):
+          0x1000'7ee4   0x528
+    1 destination range, total size 0x6151:
+          0x2000'0000  0x6151
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                    ro code  ro data  rw data
+    ------                    -------  -------  -------
+command line/config:
+    ---------------------------------------------------
+    Total:
+
+F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\Debug\Obj: [1]
+    ADC.o                         120
+    Control.o                   1 440       12      312
+    Cross.o                     1 892        1       20
+    DMA.o                         324
+    FTM.o                         848
+    GPIO.o                        596
+    Island.o                    2 428        5      912
+    LCD.o                       2 020       81    1 602
+    LED_BEEP.o                    164        1        8
+    Loop.o                        348       36        6
+    MKV58F1M0xxx24_Project.o      164
+    OV7725.o                      484    1 027   19 393
+    Process.o                   1 432      186    3 501
+    SCCB.o                        816
+    Sys_init.o                    360        3       61
+    UART.o                         44        1       24
+    breakage_process.o          3 904             5 212
+    common.o                       44                16
+    event_delay.o                 132
+    fsl_assert.o                   24       44
+    fsl_clock.o                   756      113       12
+    fsl_debug_console.o           108
+    fsl_dmamux.o                  100      176
+    fsl_edma.o                  2 172      488      129
+    fsl_io.o                       56                 8
+    fsl_log.o                      76      116
+    fsl_str.o                     718
+    fsl_uart.o                    936      768
+    fsl_uart_edma.o               792      116       48
+    inertial_navigation.o                    2       40
+    isr.o                         660                 9
+    mymath.o                       88
+    pid.o                         294
+    pit.o                          96
+    start_line.o                  552             1 284
+    startup.o                      48
+    startup_MKV58F24.o          1 088
+    system_MKV58F24.o             184
+    tools.o                       548      124      112
+    ---------------------------------------------------
+    Total:                     26 856    3 300   32 709
+
+dl7M_tlf.a: [2]
+    abort.o                         6
+    exit.o                          4
+    low_level_init.o                4
+    sprintf.o                      64
+    xprintftiny.o                 318
+    xsprout.o                      10
+    ---------------------------------------------------
+    Total:                        406
+
+m7M_tls.a: [3]
+    DblAdd.o                      378
+    DblDiv.o                      582
+    DblMul.o                      418
+    DblSub.o                      226
+    DblToS32.o                     58
+    S32ToDbl.o                     34
+    atanf.o                        72
+    fpinit_M.o                     34
+    tan32.o                       436
+    xatanf.o                      164
+    ---------------------------------------------------
+    Total:                      2 402
+
+rt7M_tl.a: [4]
+    ABImemclr4.o                    6
+    ABImemset48.o                  58
+    cexit.o                        10
+    cmain.o                        30
+    cstartup_M.o                   12
+    data_init.o                    40
+    lz77_init.o                   502
+    strlen.o                       54
+    zero_init3.o                   58
+    ---------------------------------------------------
+    Total:                        770
+
+shb_l.a: [5]
+    exit.o                         20
+    ---------------------------------------------------
+    Total:                         20
+
+    Gaps                            4        2        3
+    Linker created                          44    1 024
+-------------------------------------------------------
+    Grand Total:               30 458    3 346   33 736
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address    Size  Type      Object
+-----                       -------    ----  ----      ------
+.iar.init_table$$Base   0x1000'7e58           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x1000'7e84           --   Gb  - Linker created -
+?main                   0x1000'7e85          Code  Gb  cmain.o [4]
+ADC0_Init               0x1000'1579    0x18  Code  Gb  ADC.o [1]
+ADC0_Once               0x1000'15cb    0x1c  Code  Gb  ADC.o [1]
+ADC0_Start              0x1000'1591    0x3a  Code  Gb  ADC.o [1]
+ADC_get_data            0x1000'2d25    0x42  Code  Gb  Control.o [1]
+AD_data                 0x2000'0010     0xc  Data  Gb  Control.o [1]
+AD_in                   0x2000'7578     0x4  Data  Gb  breakage_process.o [1]
+ADdouble_task           0x1000'2ed1     0x2  Code  Gb  event_delay.o [1]
+ASSERT                  0x1000'2029     0xc  Code  Gb  common.o [1]
+All_Delay_Init          0x1000'2e61    0x1c  Code  Gb  event_delay.o [1]
+All_Delay_Task          0x1000'2e7d    0x28  Code  Gb  event_delay.o [1]
+All_White_Line          0x1000'6479   0x100  Code  Gb  Process.o [1]
+BEEP_Open_once          0x1000'2863    0x1c  Code  Gb  LED_BEEP.o [1]
+Beep_100ms              0x2000'0790     0x8  Data  Gb  LED_BEEP.o [1]
+Beep_ISR                0x1000'2893    0x22  Code  Gb  LED_BEEP.o [1]
+Beep_Once               0x1000'287f    0x14  Code  Gb  LED_BEEP.o [1]
+Block                   0x2000'010c    0x28  Data  Gb  inertial_navigation.o [1]
+CLOCK_EnableClock       0x1000'4835    0x14  Code  Lc  fsl_dmamux.o [1]
+CLOCK_EnableClock       0x1000'3123    0x16  Code  Lc  fsl_edma.o [1]
+CLOCK_EnableClock       0x1000'4199    0x16  Code  Lc  fsl_uart.o [1]
+CLOCK_GetEr32kClkFreq   0x1000'464b    0x34  Code  Gb  fsl_clock.o [1]
+CLOCK_GetFixedFreqClkFreq
+                        0x1000'4773    0x1c  Code  Gb  fsl_clock.o [1]
+CLOCK_GetFllExtRefClkFreq
+                        0x1000'4563    0x46  Code  Lc  fsl_clock.o [1]
+CLOCK_GetFllFreq        0x1000'4727    0x3c  Code  Gb  fsl_clock.o [1]
+CLOCK_GetFllFreq::fllFactorTable
+                        0x1000'4824    0x10  Data  Lc  fsl_clock.o [1]
+CLOCK_GetFllRefClkFreq  0x1000'45c7    0x18  Code  Lc  fsl_clock.o [1]
+CLOCK_GetFreq           0x1000'469d    0x66  Code  Gb  fsl_clock.o [1]
+CLOCK_GetInternalRefClkFreq
+                        0x1000'4763    0x10  Code  Gb  fsl_clock.o [1]
+CLOCK_GetInternalRefClkSelectFreq
+                        0x1000'45a9    0x1e  Code  Lc  fsl_clock.o [1]
+CLOCK_GetMcgExtClkFreq  0x1000'4541    0x22  Code  Lc  fsl_clock.o [1]
+CLOCK_GetOsc0ErClkDivFreq
+                        0x1000'4613    0x38  Code  Gb  fsl_clock.o [1]
+CLOCK_GetOsc0ErClkUndivFreq
+                        0x1000'45e1    0x32  Code  Gb  fsl_clock.o [1]
+CLOCK_GetOutClkFreq     0x1000'4705    0x22  Code  Gb  fsl_clock.o [1]
+CLOCK_GetPll0Freq       0x1000'478f    0x46  Code  Gb  fsl_clock.o [1]
+CLOCK_GetPll0RefFreq    0x1000'45df     0x2  Code  Lc  fsl_clock.o [1]
+CLOCK_GetPllFllSelClkFreq
+                        0x1000'467f    0x1c  Code  Gb  fsl_clock.o [1]
+CSTACK$$Base            0x2001'fc00           --   Gb  - Linker created -
+CSTACK$$Limit           0x2002'0000           --   Gb  - Linker created -
+Camera_start            0x1000'26e3    0x6a  Code  Gb  OV7725.o [1]
+CenterlineToDiff        0x1000'2bd1    0x2a  Code  Gb  Control.o [1]
+ConvertRadixNumToString
+                        0x1000'4d0b    0x7e  Code  Lc  fsl_str.o [1]
+Cross                   0x2000'00f0    0x14  Data  Gb  Cross.o [1]
+Cross_center_test       0x1000'6c1f   0x134  Code  Gb  Cross.o [1]
+Cross_curve_test        0x1000'68a3   0x2b6  Code  Gb  Cross.o [1]
+Cross_pre_test          0x1000'66e3   0x1c0  Code  Gb  Cross.o [1]
+Cross_process           0x1000'66ad    0x28  Code  Gb  Cross.o [1]
+DMA0_DMA16_IRQHandler   0x1000'2225    0x20  Code  Gb  isr.o [1]
+DMA4_DMA20_IRQHandler   0x1000'2205    0x20  Code  Gb  isr.o [1]
+DMAMUX_EnableChannel    0x1000'2efd    0x24  Code  Lc  tools.o [1]
+DMAMUX_GetInstance      0x1000'4849    0x2a  Code  Lc  fsl_dmamux.o [1]
+DMAMUX_Init             0x1000'4881    0x14  Code  Gb  fsl_dmamux.o [1]
+DMAMUX_SetSource        0x1000'2f21    0x2a  Code  Lc  tools.o [1]
+DMA_PORTx2BUFF_Init     0x1000'39b1   0x102  Code  Gb  DMA.o [1]
+DbgConsole_Printf       0x1000'4c99    0x2e  Code  Gb  fsl_debug_console.o [1]
+DbgConsole_RelocateLog  0x1000'4cc9    0x3a  Code  Lc  fsl_debug_console.o [1]
+Diff_PID_Process        0x1000'3ec1    0x54  Code  Gb  pid.o [1]
+Diff_Speed              0x1000'2b41    0x90  Code  Gb  Control.o [1]
+Diff_Speed::TAN_theta   0x2000'7600     0x4  Data  Lc  Control.o [1]
+Diff_Speed::Theta       0x2000'7604     0x4  Data  Lc  Control.o [1]
+Dir                     0x2000'0020    0xd0  Data  Gb  Control.o [1]
+Dir_control             0x1000'2a65    0xdc  Code  Gb  Control.o [1]
+DisableGlobalIRQ        0x1000'3151     0x8  Code  Lc  fsl_edma.o [1]
+Disp_single_colour      0x1000'1a9d    0x30  Code  Gb  LCD.o [1]
+Draw_single_line        0x1000'1acd    0x4e  Code  Gb  LCD.o [1]
+EDMA_AbortTransfer      0x1000'3935    0x38  Code  Gb  fsl_edma.o [1]
+EDMA_CreateHandle       0x1000'3481    0x92  Code  Gb  fsl_edma.o [1]
+EDMA_GetChannelStatusFlags
+                        0x1000'3425    0x46  Code  Gb  fsl_edma.o [1]
+EDMA_GetDefaultConfig   0x1000'3269    0x28  Code  Gb  fsl_edma.o [1]
+EDMA_GetInstance        0x1000'315f    0x2e  Code  Lc  fsl_edma.o [1]
+EDMA_Init               0x1000'3215    0x50  Code  Gb  fsl_edma.o [1]
+EDMA_InstallTCD         0x1000'318d    0x86  Code  Gb  fsl_edma.o [1]
+EDMA_PrepareTransfer    0x1000'356b   0x188  Code  Gb  fsl_edma.o [1]
+EDMA_SetCallback        0x1000'3545    0x26  Code  Gb  fsl_edma.o [1]
+EDMA_SetTransferConfig  0x1000'3291    0x62  Code  Gb  fsl_edma.o [1]
+EDMA_StartTransfer      0x1000'38b9    0x6c  Code  Gb  fsl_edma.o [1]
+EDMA_SubmitTransfer     0x1000'3715   0x192  Code  Gb  fsl_edma.o [1]
+EDMA_TcdReset           0x1000'32f3    0x52  Code  Gb  fsl_edma.o [1]
+EDMA_TcdSetTransferConfig
+                        0x1000'3345    0xb2  Code  Gb  fsl_edma.o [1]
+Elec_Island             0x1000'50f9    0x94  Code  Gb  Island.o [1]
+Elec_get_center         0x1000'2d67    0x76  Code  Gb  Control.o [1]
+Elec_get_center::delta  0x2000'001c     0x4  Data  Lc  Control.o [1]
+EnableGlobalIRQ         0x1000'3159     0x6  Code  Lc  fsl_edma.o [1]
+EnableIRQ               0x1000'3139    0x18  Code  Lc  fsl_edma.o [1]
+Error_handler           0x1000'207d    0x56  Code  Gb  isr.o [1]
+FTM_PWM_Duty            0x1000'24e1    0x34  Code  Gb  FTM.o [1]
+FTM_PWM_init            0x1000'22e9   0x1f6  Code  Gb  FTM.o [1]
+FTM_QD_Get              0x1000'25a5    0x28  Code  Gb  FTM.o [1]
+FTM_QD_Init             0x1000'2515    0x90  Code  Gb  FTM.o [1]
+Find_All_White          0x1000'6427    0x52  Code  Gb  Process.o [1]
+Find_Quanbai_Xie        0x1000'6579    0xb6  Code  Gb  Process.o [1]
+GPIO_Init               0x1000'1ded    0xd8  Code  Gb  GPIO.o [1]
+Get_StartInstance       0x1000'346b    0x14  Code  Lc  fsl_edma.o [1]
+Get_StartInstance::StartInstanceNum
+                        0x2000'7fc6     0x1  Data  Lc  fsl_edma.o [1]
+Get_column_end          0x1000'614b    0x5a  Code  Gb  Process.o [1]
+Gui_DrawFont_GBK24      0x1000'1b39   0x1f4  Code  Gb  LCD.o [1]
+Gui_DrawPoint           0x1000'1b1b    0x16  Code  Gb  LCD.o [1]
+HardFault_Handler       0x1000'20d5     0x4  Code  Gb  isr.o [1]
+IO_Transfer             0x1000'505d    0x30  Code  Gb  fsl_io.o [1]
+Image_Flag              0x2000'7fc8     0x1  Data  Gb  Loop.o [1]
+Image_Island_Test       0x1000'5583   0x1c8  Code  Gb  Island.o [1]
+Image_fire              0x2000'079c     0x4  Data  Gb  OV7725.o [1]
+Image_fire_Memory1      0x2000'07a0  0x25a8  Data  Gb  OV7725.o [1]
+Image_fire_Memory2      0x2000'2d48  0x25a8  Data  Gb  OV7725.o [1]
+In2Stay_Island          0x1000'53eb    0xe2  Code  Gb  Island.o [1]
+InStream_Read           0x1000'7125    0x28  Code  Lc  lz77_init.o [4]
+InStream_StepRegion     0x1000'7111    0x14  Code  Lc  lz77_init.o [4]
+In_Cross                0x1000'6b59    0xc6  Code  Gb  Cross.o [1]
+In_Cross_test           0x1000'66d5     0xe  Code  Gb  Cross.o [1]
+In_Island               0x1000'518d   0x126  Code  Gb  Island.o [1]
+In_Island::center_use   0x2000'0198     0x4  Data  Lc  Island.o [1]
+In_Island_center        0x1000'52b3   0x138  Code  Gb  Island.o [1]
+In_Island_center::Diff_L
+                        0x2000'7714    0x4c  Data  Lc  Island.o [1]
+In_Island_center::Diff_R
+                        0x2000'7760    0x4c  Data  Lc  Island.o [1]
+In_Island_center::In_black_L
+                        0x2000'76c4    0x28  Data  Lc  Island.o [1]
+In_Island_center::In_black_R
+                        0x2000'76ec    0x28  Data  Lc  Island.o [1]
+In_double_AD            0x1000'50af    0x4a  Code  Gb  Island.o [1]
+Initialization          0x2000'6100    0x38  Data  Gb  Sys_init.o [1]
+Island                  0x2000'0134    0x64  Data  Gb  Island.o [1]
+Island_process          0x1000'5095    0x1a  Code  Gb  Island.o [1]
+LCD_DISPLAY_FLAG        0x2000'7fc9     0x1  Data  Gb  Loop.o [1]
+LCD_DrawBigPoint        0x1000'1dad    0x28  Code  Gb  LCD.o [1]
+LCD_PORT_init           0x1000'15f1    0x42  Code  Gb  LCD.o [1]
+LCD_SetPos              0x1000'1a37    0x66  Code  Gb  LCD.o [1]
+LCD_init                0x1000'1633   0x238  Code  Gb  LCD.o [1]
+LCD_write_data          0x1000'1949    0xd8  Code  Gb  LCD.o [1]
+LOG_Pop                 0x1000'4ffb    0x1a  Code  Gb  fsl_log.o [1]
+LOG_Push                0x1000'4fd9    0x22  Code  Gb  fsl_log.o [1]
+Liner_threshold         0x2000'6150     0x1  Data  Gb  Process.o [1]
+Loop                    0x1000'76d5   0x10c  Code  Gb  Loop.o [1]
+Main_Line               0x2000'7a48     0x4  Data  Gb  Process.o [1]
+Memory_use_Flag         0x2000'0798     0x1  Data  Gb  OV7725.o [1]
+Motor_control           0x1000'28ed   0x176  Code  Gb  Control.o [1]
+Motor_init              0x1000'2bfd    0xb8  Code  Gb  Control.o [1]
+Next_Island_task        0x1000'2eb1    0x20  Code  Gb  event_delay.o [1]
+OV7725_cnt              0x2000'7a42     0x2  Data  Gb  OV7725.o [1]
+OV7725_fps              0x2000'7fc4     0x2  Data  Gb  OV7725.o [1]
+Out2doubleFAR_task      0x1000'2ea5     0xa  Code  Gb  event_delay.o [1]
+OutStream_Write         0x1000'714d    0x42  Code  Lc  lz77_init.o [4]
+Out_Island              0x1000'5551    0x32  Code  Gb  Island.o [1]
+Out_Island_find_Quanbai
+                        0x1000'5969    0x64  Code  Gb  Island.o [1]
+Ov7725_Init             0x1000'274d    0x12  Code  Gb  OV7725.o [1]
+Ov7725_exti_Init        0x1000'2671    0x3e  Code  Gb  OV7725.o [1]
+Ov7725_reg_Init         0x1000'275f    0x8c  Code  Gb  OV7725.o [1]
+PID_Init                0x1000'3f15    0x36  Code  Gb  pid.o [1]
+PID_process             0x1000'3e25    0x9c  Code  Gb  pid.o [1]
+PIT0_IRQHandler         0x1000'20ed   0x118  Code  Gb  isr.o [1]
+PIT0_IRQHandler::TimeCnt_1s
+                        0x2000'79f0     0x4  Data  Lc  isr.o [1]
+PIT0_IRQHandler::TimeCnt_20ms
+                        0x2000'79ec     0x1  Data  Lc  isr.o [1]
+PIT0_IRQHandler::TimeCnt_start
+                        0x2000'79ed     0x1  Data  Lc  isr.o [1]
+PORTB_IRQHandler        0x1000'20d9    0x14  Code  Gb  isr.o [1]
+ROAD                    0x2000'5358   0x870  Data  Gb  Process.o [1]
+ROADY                   0x2000'5bc8   0x538  Data  Gb  Process.o [1]
+RW$$Base                0x2000'0000           --   Gb  - Linker created -
+RW$$Limit               0x2000'6151           --   Gb  - Linker created -
+Region$$Table$$Base     0x1000'7e58           --   Gb  - Linker created -
+Region$$Table$$Limit    0x1000'7e84           --   Gb  - Linker created -
+Road_XY_Rebuild         0x1000'61a5    0x5a  Code  Gb  Process.o [1]
+SCB_EnableDCache        0x1000'79d7    0x4e  Code  Lc  system_MKV58F24.o [1]
+SCB_EnableICache        0x1000'79ad    0x2a  Code  Lc  system_MKV58F24.o [1]
+SCCB_Ack                0x1000'3bcf    0x3e  Code  Lc  SCCB.o [1]
+SCCB_GPIO_init          0x1000'3b0f    0x24  Code  Gb  SCCB.o [1]
+SCCB_NoAck              0x1000'3c0d    0x3e  Code  Lc  SCCB.o [1]
+SCCB_ReadByte           0x1000'3dab    0x7a  Code  Gb  SCCB.o [1]
+SCCB_ReceiveByte        0x1000'3cf1    0x6c  Code  Lc  SCCB.o [1]
+SCCB_SendByte           0x1000'3ca3    0x4e  Code  Lc  SCCB.o [1]
+SCCB_Start              0x1000'3b33    0x6e  Code  Lc  SCCB.o [1]
+SCCB_Stop               0x1000'3ba1    0x2e  Code  Lc  SCCB.o [1]
+SCCB_WaitAck            0x1000'3c4b    0x58  Code  Lc  SCCB.o [1]
+SCCB_WriteByte          0x1000'3d65    0x46  Code  Gb  SCCB.o [1]
+SCCB_delay              0x1000'3af5    0x1a  Code  Gb  SCCB.o [1]
+SWITCH_STATUS           0x2000'7fca     0x1  Data  Gb  Sys_init.o [1]
+Send_Image_to_LCD       0x1000'1d2d    0x70  Code  Gb  LCD.o [1]
+Servo_init              0x1000'2cb5    0x6c  Code  Gb  Control.o [1]
+Setup                   0x1000'76d1     0x2  Code  Gb  Loop.o [1]
+Speed                   0x2000'75b0    0x50  Data  Gb  Control.o [1]
+Speed_control           0x1000'28c1    0x2c  Code  Gb  Control.o [1]
+Stay2Out_task           0x1000'2ed5     0xa  Code  Gb  event_delay.o [1]
+Stay2Out_test           0x1000'574b   0x1fa  Code  Gb  Island.o [1]
+Stay2Out_test::DDiff_Far_Lie
+                        0x2000'790c    0x70  Data  Lc  Island.o [1]
+Stay2Out_test::DDiff_Hang
+                        0x2000'797c    0x70  Data  Lc  Island.o [1]
+Stay2Out_test::Diff_Far_Lie
+                        0x2000'77ac    0x74  Data  Lc  Island.o [1]
+Stay2Out_test::Diff_Hang
+                        0x2000'7898    0x74  Data  Lc  Island.o [1]
+Stay2Out_test::Edge_Hang
+                        0x2000'7820    0x78  Data  Lc  Island.o [1]
+Stay_Island             0x1000'54cd    0x84  Code  Gb  Island.o [1]
+StrFormatPrintf         0x1000'4d89   0x250  Code  Gb  fsl_str.o [1]
+Str_Cross               0x1000'6d53    0x36  Code  Gb  Cross.o [1]
+Str_Cross_Test          0x1000'6d89    0x6e  Code  Gb  Cross.o [1]
+Switch_Init             0x1000'75b7    0x8a  Code  Gb  Sys_init.o [1]
+Sysclk_init             0x1000'7b15    0x66  Code  Gb  MKV58F1M0xxx24_Project.o [1]
+SystemInit              0x1000'7a25    0x2a  Code  Gb  system_MKV58F24.o [1]
+System_init             0x1000'7525    0x78  Code  Gb  Sys_init.o [1]
+Time_delay              0x1000'3095    0x34  Code  Gb  tools.o [1]
+Time_delay_start        0x1000'308b     0xa  Code  Gb  tools.o [1]
+UART2_RX_TX_IRQHandler  0x1000'2245    0x3c  Code  Gb  isr.o [1]
+UARTN                   0x2000'6138    0x18  Data  Gb  UART.o [1]
+UART_EnableRxDMA        0x1000'48c3    0x26  Code  Lc  fsl_uart_edma.o [1]
+UART_EnableTxDMA        0x1000'489d    0x26  Code  Lc  fsl_uart_edma.o [1]
+UART_EnableTxDMA        0x1000'2055    0x26  Code  Lc  isr.o [1]
+UART_GetDataRegisterAddress
+                        0x1000'4899     0x4  Code  Lc  fsl_uart_edma.o [1]
+UART_GetDefaultConfig   0x1000'4421    0x3a  Code  Gb  fsl_uart.o [1]
+UART_GetInstance        0x1000'41b1    0x2e  Code  Gb  fsl_uart.o [1]
+UART_GetStatusFlags     0x1000'4465    0x18  Code  Gb  fsl_uart.o [1]
+UART_Init               0x1000'4215   0x1f4  Code  Gb  fsl_uart.o [1]
+UART_Pend_Char          0x1000'3985    0x28  Code  Gb  UART.o [1]
+UART_ReadBlocking       0x1000'4495    0x68  Code  Gb  fsl_uart.o [1]
+UART_ReceiveEDMACallback
+                        0x1000'4925    0x3c  Code  Lc  fsl_uart_edma.o [1]
+UART_SendEDMA           0x1000'49e5    0xc6  Code  Gb  fsl_uart_edma.o [1]
+UART_SendEDMACallback   0x1000'48e9    0x3c  Code  Lc  fsl_uart_edma.o [1]
+UART_TransferAbortReceiveEDMA
+                        0x1000'4af5    0x46  Code  Gb  fsl_uart_edma.o [1]
+UART_TransferAbortSendEDMA
+                        0x1000'4aad    0x46  Code  Gb  fsl_uart_edma.o [1]
+UART_TransferCreateHandleEDMA
+                        0x1000'4961    0x84  Code  Gb  fsl_uart_edma.o [1]
+UART_WriteBlocking      0x1000'447d    0x18  Code  Gb  fsl_uart.o [1]
+UART_eDMA_datasend      0x1000'305d    0x2e  Code  Gb  tools.o [1]
+UART_eDMA_init          0x1000'2f4b    0xaa  Code  Gb  tools.o [1]
+Uart_data               0x2000'7f54    0x1c  Data  Gb  tools.o [1]
+Uart_make_data          0x1000'2ff5    0x68  Code  Gb  tools.o [1]
+Uart_make_data::send_data
+                        0x2000'7f70    0x18  Data  Lc  tools.o [1]
+Wait_Next_Island        0x1000'5945    0x24  Code  Gb  Island.o [1]
+ZI$$Base                0x2000'6154           --   Gb  - Linker created -
+ZI$$Limit               0x2000'7fcc           --   Gb  - Linker created -
+_PrintfTiny             0x1000'7885   0x126  Code  Gb  xprintftiny.o [2]
+_SProut                 0x1000'4beb     0xa  Code  Gb  xsprout.o [2]
+__NVIC_DisableIRQ       0x1000'2651    0x20  Code  Lc  OV7725.o [1]
+__NVIC_EnableIRQ        0x1000'3109    0x1a  Code  Lc  fsl_edma.o [1]
+__NVIC_EnableIRQ        0x1000'1dd5    0x18  Code  Lc  GPIO.o [1]
+__NVIC_EnableIRQ        0x1000'2639    0x18  Code  Lc  OV7725.o [1]
+__NVIC_EnableIRQ        0x1000'7671    0x18  Code  Lc  pit.o [1]
+__NVIC_EnableIRQ        0x1000'2ee5    0x18  Code  Lc  tools.o [1]
+__NVIC_SetPriority      0x1000'7509    0x1a  Code  Lc  Sys_init.o [1]
+__RAM_VECTOR_TABLE_SIZE {Abs}
+                                0x0          Data  Gb  <internal module>
+__VECTOR_RAM {Abs}      0x1000'0000          Data  Gb  <internal module>
+__VECTOR_TABLE {Abs}    0x1000'0000          Data  Gb  <internal module>
+__Vectors               0x1000'0000           --   Gb  startup_MKV58F24.o [1]
+__Vectors_End           0x1000'0400          Data  Gb  startup_MKV58F24.o [1]
+__Vectors_Size {Abs}          0x400           --   Gb  startup_MKV58F24.o [1]
+__aeabi_JMP_BUF_SIZE {Abs}
+                               0x10           --   Gb  setjmp.o [3]
+__aeabi_assert          0x1000'4181    0x18  Code  Gb  fsl_assert.o [1]
+__aeabi_d2iz            0x1000'6081          Code  Gb  DblToS32.o [3]
+__aeabi_dadd            0x1000'5d61          Code  Gb  DblAdd.o [3]
+__aeabi_ddiv            0x1000'5a35          Code  Gb  DblDiv.o [3]
+__aeabi_dmul            0x1000'5edd          Code  Gb  DblMul.o [3]
+__aeabi_dsub            0x1000'5c7d          Code  Gb  DblSub.o [3]
+__aeabi_i2d             0x1000'5a11          Code  Gb  S32ToDbl.o [3]
+__aeabi_memclr4         0x1000'4d05          Code  Gb  ABImemclr4.o [4]
+__aeabi_memset4         0x1000'4bb1          Code  Gb  ABImemset48.o [4]
+__aeabi_memset8         0x1000'4bb1          Code  Gb  ABImemset48.o [4]
+__cmain                 0x1000'7e85          Code  Gb  cmain.o [4]
+__exit                  0x1000'730d    0x14  Code  Gb  exit.o [5]
+__iar_Memset4_word      0x1000'4bb9          Code  Gb  ABImemset48.o [4]
+__iar_Memset8_word      0x1000'4bb9          Code  Gb  ABImemset48.o [4]
+__iar_atan32            0x1000'3f85          Code  Gb  atanf.o [3]
+__iar_dadd              0x1000'5c8d          Code  Gb  DblSub.o [3]
+__iar_data_init3        0x1000'7de9    0x28  Code  Gb  data_init.o [4]
+__iar_dsub              0x1000'5d71          Code  Gb  DblAdd.o [3]
+__iar_dsubStart         0x1000'5d83          Code  Gb  DblAdd.o [3]
+__iar_init_vfp          0x1000'7e35          Code  Gb  fpinit_M.o [3]
+__iar_lz77_init3        0x1000'718f   0x178  Code  Gb  lz77_init.o [4]
+__iar_program_start     0x1000'7ed5          Code  Gb  cstartup_M.o [4]
+__iar_tan32             0x1000'3fcd   0x1b4  Code  Gb  tan32.o [3]
+__iar_tan_medium32      0x1000'3fcd   0x1b4  Code  Gb  tan32.o [3]
+__iar_tan_mediumf       0x1000'3fcd   0x1b4  Code  Gb  tan32.o [3]
+__iar_xatanf            0x1000'4bf5          Code  Gb  xatanf.o [3]
+__iar_zero_init3        0x1000'3f4b    0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init        0x1000'7ea3     0x4  Code  Gb  low_level_init.o [2]
+__vector_table          0x1000'0000          Data  Gb  startup_MKV58F24.o [1]
+__vector_table_0x1c     0x1000'001c          Data  Gb  startup_MKV58F24.o [1]
+_call_main              0x1000'7e91          Code  Gb  cmain.o [4]
+_exit                   0x1000'7ead          Code  Gb  cexit.o [4]
+_main                   0x1000'7e9f          Code  Gb  cmain.o [4]
+abort                   0x1000'7307     0x6  Code  Gb  abort.o [2]
+ad_breakage             0x1000'0f93    0x2c  Code  Gb  breakage_process.o [1]
+angle_breakage          0x1000'0a0d   0x2da  Code  Gb  breakage_process.o [1]
+angle_count             0x1000'099d    0x70  Code  Gb  breakage_process.o [1]
+angle_info              0x2000'61c8   0x550  Data  Gb  breakage_process.o [1]
+asc16                   0x2000'019c   0x5f4  Data  Gb  LCD.o [1]
+atanf                   0x1000'3f85          Code  Gb  atanf.o [3]
+back_info               0x2000'6718    0x14  Data  Gb  breakage_process.o [1]
+back_limit              0x1000'079f   0x1fe  Code  Gb  breakage_process.o [1]
+back_straight           0x1000'0d37    0x5e  Code  Gb  breakage_process.o [1]
+black_straight          0x1000'0447    0xa8  Code  Gb  breakage_process.o [1]
+break_data_init         0x1000'0411    0x36  Code  Gb  breakage_process.o [1]
+break_info              0x2000'6154    0x44  Data  Gb  breakage_process.o [1]
+breakage_move           0x1000'0ebf    0xd4  Code  Gb  breakage_process.o [1]
+breakage_move::Timeback
+                        0x2000'61c4     0x4  Data  Lc  breakage_process.o [1]
+breakage_move::Timestop
+                        0x2000'61c0     0x4  Data  Lc  breakage_process.o [1]
+bus_clk_khz             0x2000'000c     0x4  Data  Gb  common.o [1]
+cfgnum                  0x2000'5354     0x1  Data  Gb  OV7725.o [1]
+combine_straight        0x1000'0ce7    0x26  Code  Gb  breakage_process.o [1]
+core_clk_khz            0x2000'0000     0x4  Data  Gb  common.o [1]
+delayms                 0x1000'2035    0x1a  Code  Gb  common.o [1]
+detect_led              0x1000'0e1d    0x72  Code  Gb  breakage_process.o [1]
+detect_startline        0x1000'135d    0xec  Code  Gb  start_line.o [1]
+double_control          0x1000'0eb5     0xa  Code  Gb  breakage_process.o [1]
+double_start_move       0x1000'1487    0x60  Code  Gb  start_line.o [1]
+exit                    0x1000'7ea7     0x4  Code  Gb  exit.o [2]
+exterm_l                0x2000'757c     0x4  Data  Gb  breakage_process.o [1]
+exterm_r                0x2000'7580     0x4  Data  Gb  breakage_process.o [1]
+exti_init               0x1000'1f55    0x92  Code  Gb  GPIO.o [1]
+fastperipheral_clk_khz  0x2000'0004     0x4  Data  Gb  common.o [1]
+final_minus             0x2000'75a0     0xc  Data  Gb  breakage_process.o [1]
+final_sum               0x2000'75ac     0x4  Data  Gb  breakage_process.o [1]
+flexbus_clk_khz         0x2000'0008     0x4  Data  Gb  common.o [1]
+g_uartTxEdmaHandle      0x2000'7fac    0x18  Data  Gb  tools.o [1]
+g_xtal0Freq             0x2000'7608     0x4  Data  Gb  fsl_clock.o [1]
+get_Center              0x1000'61ff   0x104  Code  Gb  Process.o [1]
+get_black_line          0x1000'6303   0x124  Code  Gb  Process.o [1]
+hz24                    0x2000'79f4    0x4c  Data  Gb  LCD.o [1]
+image_process           0x1000'60bd    0x8e  Code  Gb  Process.o [1]
+img_flag                0x2000'0799     0x1  Data  Gb  OV7725.o [1]
+init_data_bss           0x1000'7d8d    0x30  Code  Gb  startup.o [1]
+k                       0x2000'7a40     0x2  Data  Gb  LCD.o [1]
+keep_safe               0x1000'2ddd    0x2a  Code  Gb  Control.o [1]
+left_minus              0x2000'7588     0xc  Data  Gb  breakage_process.o [1]
+left_out                0x2000'7584     0x4  Data  Gb  breakage_process.o [1]
+limit_straight          0x1000'05a1   0x1fe  Code  Gb  breakage_process.o [1]
+main                    0x1000'7ba5    0x14  Code  Gb  MKV58F1M0xxx24_Project.o [1]
+max_s16                 0x1000'6655    0x22  Code  Gb  mymath.o [1]
+move_info               0x2000'6198    0x28  Data  Gb  breakage_process.o [1]
+myBEEP_Init             0x1000'284f    0x14  Code  Gb  LED_BEEP.o [1]
+myLED_Init              0x1000'281d    0x32  Code  Gb  LED_BEEP.o [1]
+normal_breakage         0x1000'0d0d    0x2a  Code  Gb  breakage_process.o [1]
+out                     0x1000'786d    0x18  Code  Lc  xprintftiny.o [2]
+ov7725_get_img          0x1000'26af    0x34  Code  Gb  OV7725.o [1]
+ov7727_reg              0x2000'52f0    0x64  Data  Gb  OV7725.o [1]
+parameter_Init          0x1000'759d    0x1a  Code  Gb  Sys_init.o [1]
+part_straight           0x1000'04ef    0xb2  Code  Gb  breakage_process.o [1]
+pattern_shift           0x1000'0d95    0x88  Code  Gb  breakage_process.o [1]
+pit_init                0x1000'7689    0x34  Code  Gb  pit.o [1]
+port_init               0x1000'1ec5    0x8e  Code  Gb  GPIO.o [1]
+right_minus             0x2000'7594     0xc  Data  Gb  breakage_process.o [1]
+run                     0x2000'7fc7     0x1  Data  Gb  isr.o [1]
+run_flag                0x2000'7f50     0x4  Data  Gb  Sys_init.o [1]
+s_EDMAHandle            0x2000'760c    0x80  Data  Lc  fsl_edma.o [1]
+s_debugConsoleIO        0x2000'768c     0x8  Data  Lc  fsl_io.o [1]
+s_dmamuxClockName       0x1000'4894     0x4  Data  Lc  fsl_dmamux.o [1]
+s_edmaClockName         0x1000'3264     0x4  Data  Lc  fsl_edma.o [1]
+s_edmaIRQNumber         0x1000'3524    0x20  Data  Lc  fsl_edma.o [1]
+s_edmaPrivateHandle     0x2000'7694    0x30  Data  Lc  fsl_uart_edma.o [1]
+s_fastIrcFreq           0x2000'0108     0x4  Data  Lc  fsl_clock.o [1]
+s_slowIrcFreq           0x2000'0104     0x4  Data  Lc  fsl_clock.o [1]
+s_uartBases             0x1000'41e0    0x18  Data  Lc  fsl_uart.o [1]
+s_uartClock             0x1000'4528    0x18  Data  Lc  fsl_uart.o [1]
+scan_breakage           0x1000'0fcd   0x14e  Code  Gb  breakage_process.o [1]
+scan_info               0x2000'672c   0xe4c  Data  Gb  breakage_process.o [1]
+scan_sure               0x1000'111b   0x1f6  Code  Gb  breakage_process.o [1]
+single_control          0x1000'0e8f    0x26  Code  Gb  breakage_process.o [1]
+single_start_move       0x1000'14e7    0x46  Code  Gb  start_line.o [1]
+single_start_move::TimeCnt_stop
+                        0x2000'7f4c     0x4  Data  Lc  start_line.o [1]
+sprintf                 0x1000'782d    0x40  Code  Gb  sprintf.o [2]
+start_info              0x2000'7a4c   0x500  Data  Gb  start_line.o [1]
+start_init              0x1000'1351     0xc  Code  Gb  start_line.o [1]
+start_led               0x1000'152d    0x22  Code  Gb  start_line.o [1]
+start_operate           0x1000'1449    0x3e  Code  Gb  start_line.o [1]
+start_process           0x2000'7a44     0x4  Data  Gb  Loop.o [1]
+strlen                  0x1000'5025          Code  Gb  strlen.o [4]
+sum_point               0x1000'6677    0x30  Code  Gb  mymath.o [1]
+tanf                    0x1000'3fcd   0x1b4  Code  Gb  tan32.o [3]
+uart_eDMA_Handler       0x2000'7f90    0x1c  Data  Gb  tools.o [1]
+uart_tx_data            0x2000'7f88     0x8  Data  Gb  tools.o [1]
+write_command           0x1000'186b    0xde  Code  Gb  LCD.o [1]
+write_word              0x1000'1a21    0x16  Code  Gb  LCD.o [1]
+
+
+[1] = F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\Debug\Obj
+[2] = dl7M_tlf.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  30 458 bytes of readonly  code memory
+   3 346 bytes of readonly  data memory
+  33 736 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

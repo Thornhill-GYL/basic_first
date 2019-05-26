@@ -45,7 +45,7 @@ void Next_Island_task(void)
   Island.doubleFAR_Allow_flag = 0;
   Island.Stay2Out_cnt = 0;
   Island.In2Stay_cnt = 0;
-  LED_NO;
+ // LED_NO;
 }
 
 void ADdouble_task(void)

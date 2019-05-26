@@ -15,9 +15,9 @@ InitParameter Initialization =                          //初始化数据
   .ServoDD = 25,
   .ElecP =1.5,
   .ElecD =2,
-  .Speedtarget = 150,
+  .Speedtarget = 120,
   .Cnst = 60,
-  .Main_Line = 152,
+  .Main_Line = 160,//152
   .EnableKEY = 1,
 };
 

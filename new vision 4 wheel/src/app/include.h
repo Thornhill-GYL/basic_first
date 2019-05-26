@@ -97,6 +97,7 @@ extern Break_Data break_info;
 extern Angle_Data angle_info;
 extern Back_Data  back_info; 
 extern Move_Data  move_info;
+extern Scanbreak_Data scan_info;
 //Ê®×Ö
 extern Cross_Data Cross;
 extern u8 Liner_threshold;
@@ -105,4 +106,6 @@ extern u16 OV7725_cnt;
 extern u16 OV7725_fps;
 //°ßÂíÏß
 extern Start_Data start_info;
+//nrf
+extern int recevie_flag;
 #endif /* INCLUDE_H_ */

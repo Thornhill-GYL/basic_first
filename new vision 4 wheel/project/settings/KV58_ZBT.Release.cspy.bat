@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "E:\Smartcar\KV58_github\github\KV58_ZBT\IAR\project\settings\KV58_ZBT.Release.general.xcl" --backend -f "E:\Smartcar\KV58_github\github\KV58_ZBT\IAR\project\settings\KV58_ZBT.Release.driver.xcl" 
+"D:\Program Files (x86)\IAR8.32\common\bin\cspybat" -f "F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\settings\KV58_ZBT.Release.general.xcl" --backend -f "F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\settings\KV58_ZBT.Release.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "E:\Smartcar\KV58_github\github\KV58_ZBT\IAR\project\settings\KV58_ZBT.Release.general.xcl" "--debug_file=%~1" --backend -f "E:\Smartcar\KV58_github\github\KV58_ZBT\IAR\project\settings\KV58_ZBT.Release.driver.xcl" 
+"D:\Program Files (x86)\IAR8.32\common\bin\cspybat" -f "F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\settings\KV58_ZBT.Release.general.xcl" "--debug_file=%~1" --backend -f "F:\competition\smart car\2019double car\5.1after_four_wheel\basic_first\new vision 4 wheel\project\settings\KV58_ZBT.Release.driver.xcl" 
 
 @echo off 
 :end
