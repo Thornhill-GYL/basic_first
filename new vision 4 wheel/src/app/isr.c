@@ -62,6 +62,15 @@ void PIT0_IRQHandler(void)
   ADC_get_data();
   Motor_control();
   All_Delay_Task();
+  
+  
+  //ÆÂµÀ
+  READ_DATE();
+  Filter_2nd_LPF2ndFilter();
+  Measure_Acc();
+  Angle_control();
+  ramp_filter();
+  
   if(TimeCnt_20ms==1)
   {
    
@@ -161,5 +170,9 @@ void UART2_RX_TX_IRQHandler(void)
   {
     start_info.twice_stop=1;
   }
+}
+void UART0_RX_TX_IRQHandler(void)
+{
+  TOF_Read();
 }
 

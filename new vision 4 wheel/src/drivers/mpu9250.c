@@ -135,7 +135,7 @@ void Init_MPU9250(void)
 
 void READ_DATE(void)
 {
-  for(int i=0;i<14;i++)
+    for(int i=0;i<14;i++)
   {
     mpu9250_buffer[i] = mpu_read_data(ACCEL_XOUT_H+i);
   }
@@ -146,9 +146,22 @@ void READ_DATE(void)
   mpu9250_Gyro_y = ((((int16_t)mpu9250_buffer[10]) << 8) | mpu9250_buffer[11]) ;
   mpu9250_Gyro_z = ((((int16_t)mpu9250_buffer[12]) << 8) | mpu9250_buffer[13]) ;
   
-  mpu9250_Gyro_x=mpu9250_Gyro_x-mpu9250_Gyro_x_ave;
-  mpu9250_Gyro_y=mpu9250_Gyro_y-mpu9250_Gyro_y_ave;
-  mpu9250_Gyro_z=mpu9250_Gyro_z-mpu9250_Gyro_z_ave;//调零
+//  if(Ave_Cnt>Ave_Cnt_const)
+//  {
+    mpu9250_Gyro_x=mpu9250_Gyro_x-mpu9250_Gyro_x_ave;
+    mpu9250_Gyro_y=mpu9250_Gyro_y-mpu9250_Gyro_y_ave;
+    mpu9250_Gyro_z=mpu9250_Gyro_z-mpu9250_Gyro_z_ave;//调零
+//  }
+  
+  mpu9250_Gyro_x_as=(float)(((float)mpu9250_Gyro_x)*0.001065f);         //0.06103515625     4000/65536         
+  mpu9250_Gyro_y_as=(float)(((float)mpu9250_Gyro_y)*0.001065f);
+  mpu9250_Gyro_z_as=(float)(((float)mpu9250_Gyro_z)*0.001065f);//转化为角度每秒         /164    
+  Acc_ADC.x = (float)mpu9250_Acc_x;
+  Acc_ADC.y = (float)mpu9250_Acc_y;
+  Acc_ADC.z = (float)mpu9250_Acc_z;
+  Gyro_ADC.x = (float)mpu9250_Gyro_x;
+  Gyro_ADC.y = (float)mpu9250_Gyro_y;
+  Gyro_ADC.z = (float)mpu9250_Gyro_z;
   
 //  mpu9250_Acc_x_ms2=Ave_filter((float)(mpu9250_Acc_x*0.00239285f),&Acc_x_filter);///16.4);      //0.0023928466796875     8/32768*9.8011   
 //  mpu9250_Acc_y_ms2=Ave_filter((float)(mpu9250_Acc_y*0.00239285f),&Acc_y_filter);///16.4);

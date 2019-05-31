@@ -13,11 +13,11 @@ InitParameter Initialization =                          //初始化数据
   .ServoP = 5,
   .ServoD = 10,
   .ServoDD = 25,
-  .ElecP =1.5,
-  .ElecD =2,
-  .Speedtarget = 120,
+  .ElecP =1.5,//2
+  .ElecD =3.85,//3.79
+  .Speedtarget = 150,
   .Cnst = 60,
-  .Main_Line = 160,//152
+  .Main_Line = 152,//152
   .EnableKEY = 1,
 };
 
@@ -34,19 +34,29 @@ void System_init(void)
   myLED_Init();
   Switch_Init();
   UART_eDMA_init();
+   Uart_Init(UART_TOF,9600);
+  UART_IRQ_EN(UART_TOF);
   parameter_Init();
   Ov7725_Init();
   pit_init_ms(PIT0,PIT_PERIOD);
   ADC0_Init();
   break_data_init();
   start_init();
+  ramp_init();
   NVIC_SetPriority(DMA4_DMA20_IRQn,0);
   NVIC_SetPriority(VSYNC_IRQ,1);
   NVIC_SetPriority(PIT0_IRQn,2);
+  Init_MPU9250();
   EnableInterrupts;
   Camera_start();
 }
-
+void ramp_init(void)
+{
+  for(int i=0;i<10;i++)
+  {
+    ramp_ave[i]=2000;
+  }
+}
 void nrf_init_connect(void)
 {
 //  Link.NeedConnect=1;

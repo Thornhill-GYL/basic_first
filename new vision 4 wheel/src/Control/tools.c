@@ -94,20 +94,21 @@ void Uart_make_data()
 	short int checksum=0;
 	unsigned char xorsum=0,high,low;
 
-	send_data[0][0] = (unsigned short int)( start_info.status);
+	send_data[0][0] = (unsigned short int)(TOF_Distance);
 //        send_data[0][0] = (unsigned short int)(Gyro_ADC.x);
 //	send_data[0][1] = (unsigned short int)(Carspeed.Goal_speed);
 //	send_data[0][2] = (unsigned short int)(30);
 //	send_data[0][3] = (unsigned short int)(40); 
 //
-	send_data[1][0] = (unsigned short int)(Dir.PID_D.target);//Direction.DD * 100    Carspeed.Speed_I*10000
-	send_data[1][1] = (unsigned short int)(Dir.PID_D.feedback);
+	send_data[1][0] = (unsigned short int)(ROADY.Center);
+//	send_data[1][1] = (unsigned short int)(Dir.PID_D.feedback);
 //      send_data[1][0] = (unsigned short int)(Direction.Ratio * Direction.Gyro);
 //	send_data[1][1] = (unsigned short int)(.fly_R);
 //	send_data[1][2] = (unsigned short int)(Angle.G_angle);
-//	send_data[1][3] = (unsigned short int)(mpu9250_Gyro_y);
+//	send_data[1][3] = (unsigned short int)(Acc_ADC);
 //
-//	send_data[2][0] = (unsigned short int)(0);
+	send_data[2][0] = (unsigned short int)(ave_dc);
+
 //        send_data[2][1] = (unsigned short int)(Yaw);//Carspeed.I_Limit_PWM_max  Slowdown_Integral
 //        send_data[2][1] = (unsigned short int)(Carspeed.expect_angle);
 //	send_data[2][1] = (unsigned short int)(Elec_PID.result/10);

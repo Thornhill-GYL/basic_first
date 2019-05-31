@@ -22,10 +22,11 @@ void image_process(void)
   Road_XY_Rebuild();
   Island_process();
   Cross_process();
- 
-  if(break_info.meeting_flag==0&&Island.State==NoIsland)
+   if( start_process==1)
+       ramp();
+  if(break_info.meeting_flag==0&&Island.State==NoIsland&&ramp_flag==0)
     pattern_shift();
-  if(start_info.final_stop!=2&&break_info.meeting_flag==1)
+  if(start_info.final_stop!=2&&break_info.meeting_flag==1&&ramp_flag==0)
     start_operate();
   get_Center(Main_Line);
   CenterlineToDiff(ROADY.Center);
@@ -340,3 +341,221 @@ int Find_Quanbai_Xie(int y1,int y2)
   else
     return 0;
 }
+int left_x[20];
+int right_x[20];
+int delat_x[20];
+int test_delat;
+int test_delat_l;
+int ramp_sum;
+int delat_x_l[20];
+int straight_ramp=0;
+
+void ramp_straight(void)
+{
+  int scan_middle=153;
+  int scan_start_left;
+  int scan_start_right;
+  int k=3;
+  test_delat=0;
+  k=3;
+  for(int i=0;i<5;i++)
+  {
+    
+    scan_start_left=scan_middle;
+    while(!((IMG_PIXEL(scan_start_left-3,Main_Line-k))
+           &&(IMG_PIXEL(scan_start_left-2,Main_Line-k))
+           &&(IMG_PIXEL(scan_start_left-1,Main_Line-k)))
+           &&scan_start_left>CCD_START)
+      scan_start_left--;
+     if(scan_start_left>CCD_START&&scan_start_left<153)
+     {
+       left_x[i]=scan_start_left;
+     }
+     else
+     {
+       left_x[i]=-1;
+     }
+     scan_start_right=scan_middle;
+      while(!((IMG_PIXEL(scan_start_right+3,Main_Line-k))
+           &&(IMG_PIXEL(scan_start_right+2,Main_Line-k))
+           &&(IMG_PIXEL(scan_start_right+1,Main_Line-k)))
+           &&scan_start_right<CCD_END)
+      scan_start_right++;
+      if(scan_start_right<CCD_END&&scan_start_right>153)
+      {
+        right_x[i]=scan_start_right;
+      }
+      else
+        right_x[i]=-1;    
+    if(LCD_DISPLAY_FLAG==1)
+    {
+      
+     POINT(right_x[i]-10,Main_Line-k-90,COLOR_RED);
+     POINT(left_x[i]+10,Main_Line-k-90,COLOR_RED);
+    }
+   k=k+1;
+  }
+  ramp_sum=0;
+  for(int i=1;i<5;i++)
+  {
+    if(right_x[i]!=-1)
+    {
+      delat_x[i-1]=right_x[i]-right_x[i-1];
+      delat_x[i-1]=abs_s16(delat_x[i-1]);
+      
+      if(delat_x[i-1]<=5)
+       ramp_sum++;
+    }
+     else
+    {
+     delat_x[i-1]=20;
+    }
+   if(left_x[i]!=-1)
+    {
+      delat_x_l[i-1]=left_x[i]-left_x[i-1];
+      delat_x_l[i-1]=abs_s16(delat_x_l[i-1]);
+    }                                 
+   else
+      delat_x_l[i-1]=20;
+    
+  }
+   test_delat=delat_x[0];
+  test_delat_l=delat_x_l[0];
+  
+  for(int i=1;i<5;i++)
+  {
+    if(test_delat<delat_x[i])
+    {
+      test_delat=delat_x[i];
+    }
+    
+    if(test_delat_l<delat_x_l[i])
+    {
+      test_delat_l=delat_x_l[i];
+    }
+  }
+  
+  if(test_delat_l<=5||test_delat<=5)
+  {
+    straight_ramp=1;
+  }
+  else
+    straight_ramp=0;
+                      
+}
+int ramp_flag=0;
+int ramp_wrsum=0;
+int ramp_over=0;
+int ave_dc=0;
+int beep_ramp=0;
+int ramp_whl=0;
+int ramp_elec=0;
+void ramp(void)
+{
+   ramp_straight();
+  // ramp_whl=0;
+  int sum_straight=0;
+  
+  for(int i=Main_Line;i>Main_Line-10;i--)
+  {
+    if(part_straight(i)==1)
+    {
+      sum_straight++;
+    }
+    else
+    {
+      sum_straight=0;
+    }
+  }
+  if(ramp_over!=1)
+  {
+     if(/*straight_ramp==1&&*/TOF_Distance<=400&&TOF_Distance>100)
+     {
+       ramp_flag=1;
+       // Dir.Dir_mode=Elec_Mode;
+       Main_Line=170;
+    
+      }
+      if(ramp_flag==1)
+     {
+         if(ave_dc>130&&ave_dc<160&&beep_ramp==0)
+       {
+           beep_ramp=1;
+           Dir.Dir_mode=Elec_Mode;
+            Beep_Once(&Beep_100ms);
+            ramp_elec=1;
+         }
+         
+         if(ramp_elec==1)
+         {
+           if(TOF_Distance==2000)
+           {
+             ramp_whl=1;
+           }
+    
+          if(/*straight_ramp==1&&*/TOF_Distance<=400&&TOF_Distance>100&&ramp_whl==1)
+            {
+                ramp_over=1;
+             }
+         }
+       }
+  }
+  else if(ramp_over==1)
+  {
+    Main_Line=152;
+    Dir.Dir_mode=Camera_Mode;
+    LED_NO;
+    ramp_flag=0;
+  }
+
+  
+}
+int ramp_cnt=0;
+int ramp_diff[20];
+int ramp_delat[20];
+int ramp_ave[10];
+
+void ramp_filter(void)
+{
+  static unsigned char TimeCnt_20ms = 0;
+   TimeCnt_20ms++;
+   if(TimeCnt_20ms==4)
+   {
+      ramp_cnt++;
+      TimeCnt_20ms=0;
+   }
+  
+//   if(ramp_cnt<20)
+//   {
+//     ramp_diff[ramp_cnt]=TOF_Distance;
+//     
+//   }
+//   else
+//   {
+//     ramp_cnt=0;
+//   }
+//   for(int i=1;i<20;i++)
+//   {
+//     ramp_delat[i-1]=ramp_diff[i]-ramp_diff[i-1];
+//     ramp_delat[i-1]=abs_s16(ramp_delat[i-1]);
+//   }
+//   ramp_wrsum=0;
+//   for(int i=0;i<20;i++)
+//   {
+//     if(ramp_delat[i]>10)
+//        ramp_wrsum++;
+//    }    
+   if(ramp_cnt<5)
+     ramp_ave[ramp_cnt]=ROADY.Center;
+   else
+     ramp_cnt=0;
+   ave_dc=0;
+   for(int i=0;i<5;i++)
+   {
+     ave_dc+=ramp_ave[i];
+   }
+   ave_dc=ave_dc/5;
+   
+   
+}
+

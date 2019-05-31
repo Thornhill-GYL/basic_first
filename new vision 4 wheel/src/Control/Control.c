@@ -4,7 +4,7 @@
 Speed_Status Speed;
 u16 AD_data[6];
 Dir_STR Dir = {
-                .Dir_mode = Camera_Mode,// .Dir_mode = Camera_Mode
+                .Dir_mode = Camera_Mode,// .Dir_mode = Camera_Mode Elec_Mode
                 .Width  = 0.155f,
                 .Length = 0.2f,
                 ._2Real_V = 0.15703f,

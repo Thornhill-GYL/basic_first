@@ -63,4 +63,7 @@ void get_black_line(int hang);
 u8 Find_All_White(int hang);
 int All_White_Line(int hang,int *Left,int *Right);
 int Find_Quanbai_Xie(int Left,int Right);
+void ramp(void);//ÆÂµÀ
+void ramp_filter(void);
+void ramp_straight(void);
 #endif

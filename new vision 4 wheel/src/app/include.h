@@ -108,4 +108,14 @@ extern u16 OV7725_fps;
 extern Start_Data start_info;
 //nrf
 extern int recevie_flag;
+//ÆÂµÀ
+extern CarThreeNum  Acc_ADC;
+extern CarThreeNum  Gyro_ADC;
+extern int TOF_Distance;
+extern int ramp_flag;
+extern int ave_dc;
+extern int ramp_ave[10];
+extern int test_delat;
+extern int test_delat_l;
+extern int ramp_sum;
 #endif /* INCLUDE_H_ */

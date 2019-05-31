@@ -32,5 +32,5 @@ void System_init(void);
 void nrf_init_connect(void);
 void parameter_Init(void);
 void Switch_Init(void);
-
+void ramp_init(void);
 #endif /* SYS_INIT_H_ */

@@ -491,7 +491,7 @@ void pattern_shift(void)
     
     if(start_process==1&&break_info.sure_flag==0)
     {
-        scan_breakage();//测试函数
+       scan_breakage();//测试函数
         if(break_info.breakage_flag==1)
         {
             break_info.sure_flag=1;
@@ -512,15 +512,16 @@ void pattern_shift(void)
         Dir.Dir_mode=Elec_Mode;
         if(((SWITCH_STATUS>>1)&1)==1)
      {
-       //back_straight(break_info.breakage_line-5);//在优秀的不反光的赛道好使
+       if(AD_in==1)
+      // back_straight(break_info.breakage_line-5);//在优秀的不反光的赛道好使
        back_straight(Y_START);
      }
      else if(((SWITCH_STATUS>>1)&1)==0)
      {
        if(move_info.normal_flag==1)
        {
-          // back_straight(break_info.breakage_line-5);
-         back_straight(Y_START);
+           back_straight(break_info.breakage_line-5);
+         //back_straight(Y_START);
        }
      }
         
@@ -539,7 +540,7 @@ void detect_led(void)
   {
     if(break_info.breakage_flag==1)
     {
-      LED_BLUE;
+      LED_RED;
     }
     else if(break_info.angle_flag==1)
     {
@@ -554,12 +555,37 @@ void detect_led(void)
 }
 void single_control(void)
 {
+   
    if(Dir.Dir_mode==Elec_Mode)
   {
+    
+    if(break_info.sure_flag==1&&break_info.meeting_flag==0)
     Speed.using_speed=60;
+    else if(ramp_flag==1)
+    {
+        Speed.using_speed=80;
+    }
+    else
+       Speed.using_speed=120;
+    
   }
   else if(Dir.Dir_mode==Camera_Mode)
+  {
     Speed.using_speed=Initialization.Speedtarget;
+   if(ramp_flag==1)
+   {
+      Speed.using_speed=Initialization.Speedtarget;
+   }
+   else
+     Speed.using_speed=Initialization.Speedtarget;
+  }
+   
+   
+    if(break_info.sure_flag==1)
+    {
+      ad_breakage();
+    }
+   
     
 }
 void double_control(void)
@@ -649,12 +675,13 @@ void scan_breakage(void)
 //  int temp_tx;
 //  int sum_left_one=0;
   int sum_left=0;
-  k=0;
+ 
   for(int i=0;i<300;i++)
   {
     scan_info.up_line[i].x=0;
     scan_info.up_line[i].y=0;
   }
+  k=0;
   for(i=CCD_START;i<CCD_END;i++)
   {
     
@@ -676,10 +703,13 @@ void scan_breakage(void)
      {
        scan_info.up_line[k].y=1;
      }
-     k++;
-    } 
     if(LCD_DISPLAY_FLAG==1)
+    {
      POINT(scan_info.up_line[k].x,scan_info.up_line[k].y-80,COLOR_RED);
+    }
+     k++;
+     
+    } 
   }
   scan_info.far_y=scan_info.up_line[0].y;
   scan_info.far_x=scan_info.up_line[0].x;
