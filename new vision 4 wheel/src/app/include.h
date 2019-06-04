@@ -118,4 +118,8 @@ extern int ramp_ave[10];
 extern int test_delat;
 extern int test_delat_l;
 extern int ramp_sum;
+
+
+//新硬件测试 之后删除
+extern int ad_test;
 #endif /* INCLUDE_H_ */

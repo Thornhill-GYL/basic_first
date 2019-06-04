@@ -649,10 +649,12 @@ void breakage_move(void)
     else
       single_control();
 }
+int ad_test=0;
 void ad_breakage(void)
 {
     int ad_detect=0;
-    ad_detect=ADC0_Once(ADC0_SE5a,ADC_12bit);
+    ad_detect=ADC0_Once(ADC0_SE9,ADC_12bit);
+    ad_test=ADC0_Once(ADC0_SE9,ADC_12bit);
     if(ad_detect<5)
         ad_detect=5;
     if(ad_detect>4050)

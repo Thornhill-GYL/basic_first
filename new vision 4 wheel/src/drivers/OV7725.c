@@ -27,10 +27,20 @@ edma_transfer_config_t DMA_Transfer_config;
 void Ov7725_exti_Init()
 {
   //FIFO端口初始化
+//  GPIO_Init(PORTC, 0, GPI, HIGH);
+//  GPIO_Init(PORTC, 1, GPI, HIGH);
+//  GPIO_Init(PORTC, 2, GPI, HIGH);
+//  GPIO_Init(PORTC, 3, GPI, HIGH);
+//  GPIO_Init(PORTC, 4, GPI, HIGH);
+//  GPIO_Init(PORTC, 5, GPI, HIGH);
+//  GPIO_Init(PORTC, 6, GPI, HIGH);
+//  GPIO_Init(PORTC, 7, GPI, HIGH);
   for(int i = 0;i<8;i++)
     GPIO_Init(CMA_DATA_PORT, CMA_DATA0_PIN+i, GPI, HIGH);
+  
   port_init(PCLK_PORT, ALT1 | DMA_FALLING | PULL_UP);    //PCLK
   exti_init(VSYNC_PORT, RISING | PULL_DOWN | PF);    //场中断，下拉，下降沿触发中断，带滤波
+  //PORT_PCR_REG(PORTB,23) = PORT_PCR_MUX(1);//由于有端口冲突，所以这里直接对端口号操作。
   NVIC_DisableIRQ(VSYNC_IRQ);
   //关闭PTB的中断
   Image_fire=&Image_fire_Memory1[0];
@@ -40,6 +50,7 @@ void ov7725_get_img()
 {
   img_flag = IMG_START;			//开始采集图像
   NVIC_DisableIRQ(VSYNC_IRQ);
+   //PORT_PCR_REG(PORTB,23) = PORT_PCR_MUX(1) ;//
   if(Memory_use_Flag==2)
   {
     Memory_use_Flag=1;
@@ -65,6 +76,7 @@ void Camera_start(void)
   DMA_DIS(CAMERA_DMA_CH);
   VSYNC_ISFR = ~0;
   NVIC_EnableIRQ(VSYNC_IRQ);
+  //PORT_PCR_REG(PORTB,23) = (PORT_PCR_MUX(1) | RISING | PULL_DOWN | PF);//由于有端口冲突，所以这里直接对端口号操作。
 }
 
 /*OV7725初始化配置表*/

@@ -27,7 +27,7 @@ enum Block_STATE
 typedef struct
 {
   enum Block_STATE State;
-  u32 Servo_duty_temp;
+  int Servo_duty_temp;
   int Speed_target_L;
   int Speed_target_R;
   int Speed_target_ave;

@@ -22,12 +22,12 @@ void image_process(void)
   Road_XY_Rebuild();
   Island_process();
   Cross_process();
-   if( start_process==1)
-       ramp();
-  if(break_info.meeting_flag==0&&Island.State==NoIsland&&ramp_flag==0)
-    pattern_shift();
-  if(start_info.final_stop!=2&&break_info.meeting_flag==1&&ramp_flag==0)
-    start_operate();
+//   if( start_process==1)
+//       ramp();
+//  if(break_info.meeting_flag==0&&Island.State==NoIsland&&ramp_flag==0)
+//    pattern_shift();
+//  if(start_info.final_stop!=2&&break_info.meeting_flag==1&&ramp_flag==0)
+//    start_operate();
   get_Center(Main_Line);
   CenterlineToDiff(ROADY.Center);
  
@@ -469,7 +469,7 @@ void ramp(void)
   }
   if(ramp_over!=1)
   {
-     if(/*straight_ramp==1&&*/TOF_Distance<=400&&TOF_Distance>100)
+     if(straight_ramp==1&&TOF_Distance<=400&&TOF_Distance>100)
      {
        ramp_flag=1;
        // Dir.Dir_mode=Elec_Mode;
@@ -493,7 +493,7 @@ void ramp(void)
              ramp_whl=1;
            }
     
-          if(/*straight_ramp==1&&*/TOF_Distance<=400&&TOF_Distance>100&&ramp_whl==1)
+          if(straight_ramp==1&&TOF_Distance<=400&&TOF_Distance>100&&ramp_whl==1)
             {
                 ramp_over=1;
              }

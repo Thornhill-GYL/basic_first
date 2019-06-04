@@ -62,7 +62,8 @@ void PIT0_IRQHandler(void)
   ADC_get_data();
   Motor_control();
   All_Delay_Task();
-  
+  //测试对管，之后删除即可。
+  ad_breakage();
   
   //坡道
   READ_DATE();
@@ -70,7 +71,7 @@ void PIT0_IRQHandler(void)
   Measure_Acc();
   Angle_control();
   ramp_filter();
-  
+  navigation();
   if(TimeCnt_20ms==1)
   {
    
@@ -115,7 +116,11 @@ void PIT0_IRQHandler(void)
   else
     Speed.using_speed =0;
   
-  if(move_info.quit_safe!=1)//在断路过程中取消安全保护
+//  if(move_info.quit_safe!=1&&Block.State==NoBlock)//在断路过程中取消安全保护
+//  {
+//    keep_safe();
+//  }
+  if(Block.State==NoBlock)
   {
     keep_safe();
   }
@@ -148,7 +153,7 @@ void DMA0_DMA16_IRQHandler(void)
   uart_eDMA_Handler.txState = 0;
 }
 
-void UART2_RX_TX_IRQHandler(void)
+void UART0_RX_TX_IRQHandler(void)
 {
   
   UART_Pend_Char(UART_2,&run);
@@ -170,8 +175,12 @@ void UART2_RX_TX_IRQHandler(void)
   {
     start_info.twice_stop=1;
   }
+  if(run=='e')
+  {
+    Block.State = Block_S1;
+  }
 }
-void UART0_RX_TX_IRQHandler(void)
+void UART3_RX_TX_IRQHandler(void)
 {
   TOF_Read();
 }

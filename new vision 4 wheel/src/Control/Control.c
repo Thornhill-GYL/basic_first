@@ -170,7 +170,7 @@ void Motor_init(void)
   FTM_PWM_init(MOTORL_FTM, 13000, 65535);
   GPIO_Init(MOTORL_DIR_PORT, GPO, HIGH);
   FTM_PWM_init(MOTORR_FTM, 13000, 0);
-  GPIO_Init(MOTORR_DIR_PORT, GPO, LOW);
+  GPIO_Init(MOTORR_DIR_PORT, GPO, HIGH);
   FTM_QD_Init(FTM1);
   FTM_QD_Init(FTM2);
   PID_Init(&Speed.PID,
@@ -217,8 +217,8 @@ void ADC_get_data(void)
 {
   //long timeout = 0;
 
-  AD_data[0] = ADC0_Once(ADC0_SE7b,ADC_12bit);
-  AD_data[1] = ADC0_Once(ADC0_SE11,ADC_12bit);
+  AD_data[0] = ADC0_Once(ADC0_DP3,ADC_12bit);
+  AD_data[1] = ADC0_Once(ADC0_SE8,ADC_12bit);
   for(int i=0;i<2;i++)
   {
     if(AD_data[i]<=5)

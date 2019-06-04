@@ -41,13 +41,13 @@ void navigation(void)
   switch(Block.State)
   {
   case Block_S1:
-    Block.R = -0.5;
+    Block.R = 0.3;
     break;
   case Block_S2:
-    Block.R = 0.6;
+    Block.R = -0.3;
     break;
   case Block_S3:
-    Block.R = -0.5;
+    Block.R = 0.5;
     break;
   default:
     break;

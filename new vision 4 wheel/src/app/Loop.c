@@ -38,15 +38,18 @@ void Loop(void)
          Draw_single_line('L',CCD_START,COLOR_BLUE);
         Draw_single_line('L',CCD_END,COLOR_RED);
          Draw_single_line('L',153,COLOR_RED);
-       sprintf((char *)buf,"test_delat=%d   ramp_sum =%d ",test_delat,ramp_sum);
+       sprintf((char *)buf,"Elec_left=%d   Elec_right =%d ",Dir.Elec_Left,Dir.Elec_Right);
        Gui_DrawFont_GBK24(10,150, COLOR_BLACK,COLOR_WHITE,buf);
-       sprintf((char *)buf,"black_flag=%d straight_flag=%d  ",break_info.black_flag,break_info.combine_flag);
+//       sprintf((char *)buf,"black_flag=%d straight_flag=%d  ",break_info.black_flag,break_info.combine_flag);
+//       Gui_DrawFont_GBK24(10,170, COLOR_BLACK,COLOR_WHITE,buf);
+       //测试使用，之后删除
+       sprintf((char *)buf,"ad_Test=%d   ",ad_test);
        Gui_DrawFont_GBK24(10,170, COLOR_BLACK,COLOR_WHITE,buf);
        sprintf((char *)buf,"angle_flag=%d  ",break_info.angle_flag);
        Gui_DrawFont_GBK24(10,190, COLOR_BLACK,COLOR_WHITE,buf);
 //       sprintf((char *)buf,"far_x=%d   far_y=%d    ",scan_info.far_x,scan_info.far_y);
 //       Gui_DrawFont_GBK24(10,210, COLOR_BLACK,COLOR_WHITE,buf);
-      sprintf((char *)buf,"tof_distance=%d      ",TOF_Distance);
+      sprintf((char *)buf,"TOF_Distance=%d      ",TOF_Distance);
        Gui_DrawFont_GBK24(10,210, COLOR_BLACK,COLOR_WHITE,buf);
          
     }
